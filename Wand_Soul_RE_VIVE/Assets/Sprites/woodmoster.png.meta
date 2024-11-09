@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c907abfb0a9bce14e8778072cf0be323
+guid: 0e85c5b8f2b02544ba09d69703d0e87a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,7 +129,7 @@ TextureImporter:
         x: 2
         y: 193
         width: 57
-        height: 60
+        height: 55
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,176 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c723284d3e2b0a5438b82d5c0c7bd2ef
-      internalID: -810999648
+      spriteID: 45ea927985538f747be75cd2b6df266b
+      internalID: 520087796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_attack0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 193
+        width: 56
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6ece49386bc8e04eaf0fc6745873a8e
+      internalID: -2135485767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_attack4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 193
+        width: 55
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb4dd23a7f3a0704380cd116f8354dbd
+      internalID: -1144458109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_dead0
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 193
+        width: 59
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f602739b1e0ae4f85d58a0edc05f4d
+      internalID: -2001898491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_dead4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 193
+        width: 57
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 491d2592ff6e94b4bb78420a33f23b5f
+      internalID: 446527495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_idle0
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 193
+        width: 57
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9c0f8b14d1276745998666fed1cb0b6
+      internalID: -1144964632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_idle1
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 193
+        width: 57
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a57acda145022794e9653d3f54d1975e
+      internalID: -146868459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_idle2
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 193
+        width: 57
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537b4a043ee8bfd4dbb709dd088a95e9
+      internalID: -883190229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 129
+        width: 63
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0fbcc3e2ade034885fc78e1efa14b5
+      internalID: -472049530
       vertices: []
       indices: 
       edges: []
@@ -147,10 +315,10 @@ TextureImporter:
       name: Triffid_attack1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 193
-        width: 56
-        height: 60
+        x: 65
+        y: 129
+        width: 54
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c496d545425cdc54ca8bd7871fbd0259
-      internalID: 1936872533
+      spriteID: 7dc83358cac3b3240b78ebff0f54a24a
+      internalID: -1941661345
       vertices: []
       indices: 
       edges: []
@@ -168,10 +336,10 @@ TextureImporter:
       name: Triffid_attack5
       rect:
         serializedVersion: 2
-        x: 129
-        y: 193
-        width: 55
-        height: 62
+        x: 128
+        y: 129
+        width: 56
+        height: 56
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e69e102471694445a88b237d477d88a
-      internalID: -195871776
+      spriteID: 116c4a69dcff9dc4fbc51dc01d49348a
+      internalID: 367461490
       vertices: []
       indices: 
       edges: []
@@ -190,9 +358,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 194
-        y: 193
-        width: 59
-        height: 60
+        y: 129
+        width: 57
+        height: 55
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,182 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11597a4573493074f9efb182873566d8
-      internalID: -1634644447
+      spriteID: 3e19a1eca64659d428ab72da9ff152f4
+      internalID: 1120584822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Triffid_dead5
-      rect:
-        serializedVersion: 2
-        x: 258
-        y: 193
-        width: 57
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3626a1e5e419c4549ab3f273d4cb6770
-      internalID: 1823158561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Triffid_waliking1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 129
-        width: 63
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec401096b81153a48870dcdb15a95162
-      internalID: -783605940
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Triffid_walking2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 65
-        width: 57
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1fd69650570de484891e590049f3574c
-      internalID: -1480546716
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Triffid_attack2
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 129
-        width: 54
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9f3c17ccaefa1e4ab2f00b1dc47c897
-      internalID: -285620424
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Triffid_attack4
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 65
-        width: 56
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd25ef3f959323c419d157c3e286c0cb
-      internalID: 1674313917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Triffid_attack7
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 65
-        width: 56
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b7f80b055b0e76449fc69cfe8f02323
-      internalID: 188437402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Triffid_attack6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 129
-        width: 56
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b8440a85d586a74d9f47c5e7ea4502c
-      internalID: 1684826947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Triffid_dead2
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 129
-        width: 57
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4dfcac333bd035a48bbf5803c0d76361
-      internalID: -345500389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Triffid_dead6
       rect:
         serializedVersion: 2
         x: 258
@@ -389,20 +389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aab1854e7c5c5af43971e359819e4e9f
-      internalID: -860268398
+      spriteID: 069ef139e55b64d4eb41523547f40724
+      internalID: -973636532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triffid_walking3
+      name: Triffid_idle3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1
-        width: 57
-        height: 60
+        x: 323
+        y: 129
+        width: 56
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,8 +410,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e81963db2fcf2c4f94d04bec36ebdb2
-      internalID: -1302247199
+      spriteID: 0c6cb7096d2f9b74bbd295bf7f992674
+      internalID: 790473750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 57
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 851c8b36060e196498f946f1366b3402
+      internalID: -1242336994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 65
+        width: 57
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a13f0c63d6681b4abc9ad0ef86f1fb5
+      internalID: -1094762680
       vertices: []
       indices: 
       edges: []
@@ -424,27 +466,6 @@ TextureImporter:
         y: 1
         width: 56
         height: 63
-      alignment: 9
-      pivot: {x: 0.5070645, y: 0.48116145}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79461ea4360f7fc4a8f4663ef9c2b365
-      internalID: 1778170405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Triffid_dead3
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 65
-        width: 57
-        height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,14 +473,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 450bb9da980aa40418a8675d48b88b7b
-      internalID: 1176969676
+      spriteID: 7c71a36b327d1e14b9dafe31dc39bf8a
+      internalID: -2102286934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triffid_dead7
+      name: Triffid_attack2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 65
+        width: 56
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04cdea68e19ddc5409037633887ad064
+      internalID: -1617690666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_attack6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 65
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508c131c110fdcb449e54898ba710d93
+      internalID: 1730495135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_dead2
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 64
+        width: 57
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a495ef4aa294f4245ba63147ebc1076f
+      internalID: 137486439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Triffid_dead6
       rect:
         serializedVersion: 2
         x: 258
@@ -473,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19ee3b3676408724195591973860277f
-      internalID: 1897010564
+      spriteID: 0d7d4bd00659f9d4293bcdb05120cfc4
+      internalID: 752446511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triffid_attack8
+      name: Triffid_attack7
       rect:
         serializedVersion: 2
         x: 128
@@ -494,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e35349b4309d53646a28ced78af39148
-      internalID: 1584759859
+      spriteID: 5cb77fa42a951ff4394242c0a3af5961
+      internalID: -1764781570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triffid_dead4
+      name: Triffid_dead3
       rect:
         serializedVersion: 2
         x: 197
@@ -515,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf2bad0d5a22417438d5f13618743546
-      internalID: -1821337572
+      spriteID: 14e34e7514d674949b4c80eb4d720f3b
+      internalID: -533616587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triffid_dead8
+      name: Triffid_dead7
       rect:
         serializedVersion: 2
         x: 260
@@ -536,8 +620,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d90688f3cb3b813438a1f5adb5fed3bc
-      internalID: 1583676737
+      spriteID: cd158a78b733864428b6dfb5c0807397
+      internalID: 1260319449
       vertices: []
       indices: 
       edges: []
@@ -553,26 +637,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Triffid_0: -810999648
-      Triffid_attack1: 1936872533
-      Triffid_attack2: -285620424
-      Triffid_attack3: 1778170405
-      Triffid_attack4: 1674313917
-      Triffid_attack5: -195871776
-      Triffid_attack6: 1684826947
-      Triffid_attack7: 188437402
-      Triffid_attack8: 1584759859
-      Triffid_dead1: -1634644447
-      Triffid_dead2: -345500389
-      Triffid_dead3: 1176969676
-      Triffid_dead4: -1821337572
-      Triffid_dead5: 1823158561
-      Triffid_dead6: -860268398
-      Triffid_dead7: 1897010564
-      Triffid_dead8: 1583676737
-      Triffid_waliking1: -783605940
-      Triffid_walking2: -1480546716
-      Triffid_walking3: -1302247199
+      Triffid_0: 520087796
+      Triffid_1: -472049530
+      Triffid_2: -1094762680
+      Triffid_3: -1242336994
+      Triffid_attack0: -2135485767
+      Triffid_attack1: -1941661345
+      Triffid_attack2: -1617690666
+      Triffid_attack3: -2102286934
+      Triffid_attack4: -1144458109
+      Triffid_attack5: 367461490
+      Triffid_attack6: 1730495135
+      Triffid_attack7: -1764781570
+      Triffid_dead0: -2001898491
+      Triffid_dead1: 1120584822
+      Triffid_dead2: 137486439
+      Triffid_dead3: -533616587
+      Triffid_dead4: 446527495
+      Triffid_dead5: -973636532
+      Triffid_dead6: 752446511
+      Triffid_dead7: 1260319449
+      Triffid_idle0: -1144964632
+      Triffid_idle1: -146868459
+      Triffid_idle2: -883190229
+      Triffid_idle3: 790473750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
