@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 685943904}
   - component: {fileID: 685943903}
   - component: {fileID: 685943907}
+  - component: {fileID: 685943908}
   m_Layer: 0
   m_Name: TreeEnemy
   m_TagString: Untagged
@@ -339,8 +340,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0.015795767, y: -0.090889096}
+  m_Size: {x: 1.2723483, y: 1.8279479}
   m_Direction: 0
 --- !u!50 &685943904
 Rigidbody2D:
@@ -410,15 +411,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -810999648, guid: c907abfb0a9bce14e8778072cf0be323, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.57, y: 0.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &685943906
@@ -452,6 +453,27 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   findDistance: 10
+--- !u!95 &685943908
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685943902}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6003d2e009dba84ea464eaaf72c14c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &706322431
 GameObject:
   m_ObjectHideFlags: 0
