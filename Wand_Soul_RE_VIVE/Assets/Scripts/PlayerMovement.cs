@@ -8,10 +8,15 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     [SerializeField] float Speed = 10f;
+    [SerializeField] float jumpSpeed = 10f;
+    CapsuleCollider2D myCapusleCollider;
+
+    bool canDoubleJump;
 
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        myCapusleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     void Update()
@@ -24,6 +29,24 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = value.Get<Vector2>();
         Debug.Log(moveInput);
+    }
+
+    void OnJump(InputValue value)
+    {  
+        if(value.isPressed)
+        {
+            if(myCapusleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+            {
+                myRigidbody.velocity += new Vector2(0f, jumpSpeed);
+                canDoubleJump = true;
+            }
+            else if(canDoubleJump)
+            {
+                myRigidbody.velocity += new Vector2(0f, jumpSpeed);
+                canDoubleJump = false;
+            }
+        }
+
     }
 
     void Run()
