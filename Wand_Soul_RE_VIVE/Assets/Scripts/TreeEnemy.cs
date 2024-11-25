@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public class TreeEnemy : Enemy
     [SerializeField] float findDistance = 10f;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float attackDistance = 2f;
-    [SerializeField] float attackCooldown = 2f; // °ø°Ý °£°Ý
+    [SerializeField] float attackCooldown = 2f; // ê³µê²© ê°„ê²©
 
     private Transform target;
     private Animator animator;

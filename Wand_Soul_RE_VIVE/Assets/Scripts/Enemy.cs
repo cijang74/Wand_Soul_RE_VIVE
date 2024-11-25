@@ -1,13 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    protected int hp = 10;  //¸ó½ºÅÍ hp
+    protected int hp = 10;  //ëª¬ìŠ¤í„° hp
     public UnityEvent DieEvent;
-    public virtual void Damage(int damage)      //ÇÃ·¹ÀÌ¾î °ø°İÇÑ ÇÔ¼ö ³¡¿¡ .Damage(20) ÀÌ·± ½ÄÀ¸·Î È°¿ë
+    public virtual void Damage(int damage)      //í”Œë ˆì´ì–´ ê³µê²©í•œ í•¨ìˆ˜ ëì— .Damage(20) ì´ëŸ° ì‹ìœ¼ë¡œ í™œìš©
     {
         hp -= damage;
     }
