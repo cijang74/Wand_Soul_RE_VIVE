@@ -10,11 +10,13 @@ public class TreeEnemy : Enemy
 
     [SerializeField] float findDistance = 10f;
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float attackDistance = 1f;
+    [SerializeField] float attackDistance = 2f;
+    [SerializeField] float attackCooldown = 2f; // 공격 간격
 
     private Transform target;
     private Animator animator;
 
+    private bool isAttacking = false;
 
     TreeEnemy()
     {
@@ -44,14 +46,29 @@ public class TreeEnemy : Enemy
 
         if(distanceToPlayer > findDistance)
         {
-            rd2d.velocity = new Vector2(0, rd2d.velocity.y);
+            StopMoving();
         }
         else if(distanceToPlayer <= attackDistance)
         {
-            AttackPlayer();
-            rd2d.velocity = Vector2.zero;
+            if(!isAttacking)
+            {
+                StartCoroutine(AttackPlayer());
+            }
         }
         else
+        {
+            MoveTowardPlayer();
+        }
+    }
+
+    private void StopMoving()
+    {
+        rd2d.velocity = new Vector2(0, rd2d.velocity.y);
+    }
+
+    private void MoveTowardPlayer()
+    {
+        if(!isAttacking)
         {
             float moveDirection = target.position.x > transform.position.x ? 1 : -1;
             Vector2 enemyVelocity = new Vector2(moveSpeed * moveDirection, rd2d.velocity.y);
@@ -63,9 +80,25 @@ public class TreeEnemy : Enemy
         }
     }
 
-    private void AttackPlayer()
+    private IEnumerator AttackPlayer()
     {
+        isAttacking = true;
+        StopMoving();
+
         animator.SetTrigger("isAttacking");
+
+        yield return new WaitForSeconds(attackCooldown);
+
+        animator.ResetTrigger("isAttacking");
+        isAttacking = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().Damage(5);
+        }
     }
 
     void FlipEnemyFacing()

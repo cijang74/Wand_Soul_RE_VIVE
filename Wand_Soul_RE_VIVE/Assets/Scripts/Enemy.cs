@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     protected int hp = 10;  //몬스터 hp
     public UnityEvent DieEvent;
-    public virtual void Damage(int damage)      //어떤 몬스터나 플레이어 공격한 함수 끝에 .Damage(20) 이런 식으로 활용
+    public virtual void Damage(int damage)      //플레이어 공격한 함수 끝에 .Damage(20) 이런 식으로 활용
     {
         hp -= damage;
     }

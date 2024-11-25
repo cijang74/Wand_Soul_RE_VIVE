@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D myRigidbody;
     [SerializeField] float Speed = 10f;
     [SerializeField] float jumpSpeed = 10f;
+    [SerializeField] float hp = 10f;
+
     CapsuleCollider2D myCapusleCollider;
 
     bool canDoubleJump;
@@ -23,6 +25,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Run();
         FlipSprite();
+    }
+
+    public void Damage(int damage)
+    {
+        hp -= damage;
+        Debug.Log("Now Player HP is " + hp);
     }
 
     void OnMove(InputValue value)
