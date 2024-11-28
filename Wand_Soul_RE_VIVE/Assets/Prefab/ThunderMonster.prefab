@@ -37,6 +37,7 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!212 &2831803252281519096
 =======
 --- !u!95 &8273711516729179211
@@ -62,6 +63,9 @@ Animator:
   m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &3939330728352551061
 >>>>>>> parent of 0a1cbfa (선더몬스터 수정)
+=======
+--- !u!212 &2831803252281519096
+>>>>>>> parent of ea4b983 (Merge branch '김상연(스프라이트)')
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,10 +107,14 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 2012294492, guid: 78e728230efee6841a91d90d4b427fbb, type: 3}
 =======
   m_Sprite: {fileID: -278026547, guid: 93365411ef09a224f928482c608adf35, type: 3}
 >>>>>>> parent of 0a1cbfa (선더몬스터 수정)
+=======
+  m_Sprite: {fileID: 2012294492, guid: 78e728230efee6841a91d90d4b427fbb, type: 3}
+>>>>>>> parent of ea4b983 (Merge branch '김상연(스프라이트)')
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
