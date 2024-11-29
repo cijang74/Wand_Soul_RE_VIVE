@@ -10,14 +10,15 @@ public class IceEnemy : Enemy
     [SerializeField] float findDistance = 10f;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float attackDistance = 2f;
-    [SerializeField] float attackCooldown = 2f; // °ø°Ý ¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý ½Ã°£
-    [SerializeField] float idleTimeAfterAttack = 3f; // °ø°Ý ¼Óµµ
+    [SerializeField] float attackCooldown = 2f; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+    [SerializeField] float idleTimeAfterAttack = 3f; // ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 
     private Transform target;
     private Animator animator;
 
+    private bool isWalking = false;
     private bool isAttacking = false;
-    private bool canAttack = true; // °ø°Ý °¡´É »óÅÂ ÇÃ·¡±×
+    private bool canAttack = true; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
 
     IceEnemy()
     {
@@ -35,10 +36,18 @@ public class IceEnemy : Enemy
     private void StopMoving()
     {
         rd2d.velocity = Vector2.zero;
+        //wanderì• ë‹ˆë©”ì´ì…˜ ì¤‘ì§€
+        animator.ResetTrigger("isWander");
+        isWalking = false;
+        //
     }
 
     private void MoveTowardPlayer()
     {
+        //wanderì• ë‹ˆë©”ì´ì…˜ ì¶”ê°€
+        isWalking = true;
+        animator.SetTrigger("isWander");
+        //
         float moveDirection = target.position.x > transform.position.x ? 1 : -1;
         Vector2 enemyVelocity = new Vector2(moveSpeed * moveDirection, rd2d.velocity.y);
         rd2d.velocity = enemyVelocity;
@@ -52,21 +61,21 @@ public class IceEnemy : Enemy
     private IEnumerator AttackPlayer()
     {
         isAttacking = true;
-        canAttack = false; // ÀÏÁ¤ ½Ã°£ µ¿¾È °ø°Ý ºÒ°¡´É
+        canAttack = false; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
 
-        StopMoving(); // °ø°Ý Áß¿¡´Â ¸ØÃã
+        StopMoving(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         animator.SetTrigger("isAttack");
 
         yield return new WaitForSeconds(attackCooldown);
 
         animator.ResetTrigger("isAttack");
 
-        isAttacking = false; // °ø°Ý ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ³¡³­ Á÷ÈÄ isAttackingÀ» false·Î ¼³Á¤
+        isAttacking = false; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ isAttackingï¿½ï¿½ falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        // idle ¶Ç´Â ÀÌµ¿ »óÅÂ·Î ÀüÈ¯
+        // idle ï¿½Ç´ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½È¯
         yield return new WaitForSeconds(idleTimeAfterAttack);
 
-        canAttack = true; // ´Ù½Ã °ø°Ý °¡´É
+        canAttack = true; // ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -108,7 +117,7 @@ public class IceEnemy : Enemy
                 StartCoroutine(AttackPlayer());
             }
         }
-        else if (!isAttacking) // °ø°Ý ÁßÀÌ ¾Æ´Ò ¶§¸¸ ÀÌµ¿
+        else if (!isAttacking) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         {
             MoveTowardPlayer();
         }

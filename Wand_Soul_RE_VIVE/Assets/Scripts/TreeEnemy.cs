@@ -17,6 +17,7 @@ public class TreeEnemy : Enemy
     private Animator animator;
 
     private bool isAttacking = false;
+    private bool isWalking = false;
 
     TreeEnemy()
     {
@@ -64,12 +65,20 @@ public class TreeEnemy : Enemy
     private void StopMoving()
     {
         rd2d.velocity = new Vector2(0, rd2d.velocity.y);
+        //walking 애니메이션 중지
+        animator.ResetTrigger("isWalking");
+        isWalking = false;
+        //
     }
 
     private void MoveTowardPlayer()
     {
         if(!isAttacking)
         {
+            //walking애니메이션 
+            isWalking = true;
+            animator.SetTrigger("isWalking");
+            //
             float moveDirection = target.position.x > transform.position.x ? 1 : -1;
             Vector2 enemyVelocity = new Vector2(moveSpeed * moveDirection, rd2d.velocity.y);
             rd2d.velocity = enemyVelocity;
