@@ -123,12 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IceGolem_attack0
+      name: IceMonster_attack0
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 64
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -137,19 +137,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a48d5872532b2ae4393d62ada4da9c72
-      internalID: -670919950
+      spriteID: 917275ec6c7ace64c831050a69331abd
+      internalID: -1007928263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_attack5
+      name: IceMonster_attack1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 256
-        width: 64
+        x: 100
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -158,19 +158,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db6f8afc394dbad40bc89e7ba2b5ae00
-      internalID: 724944416
+      spriteID: b0a84dc616cbeee4e9b371e8d6dbf763
+      internalID: 2133161733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_dead2
+      name: IceMonster_attack2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 64
+        x: 200
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -179,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74fd8b164771c1e4c8ff8e7935049c90
-      internalID: 1500004400
+      spriteID: 3024534de8f794d4bb38da8c0e7c8e4c
+      internalID: -1176621642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_idle0
+      name: IceMonster_attack3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 256
-        width: 64
+        x: 300
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -200,19 +200,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10cc000c31be705409233ab178250ac7
-      internalID: 466036505
+      spriteID: 1a6c3d125d75d0342b73789ab1e28edf
+      internalID: -977645895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_wander0
+      name: IceMonster_attack4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 64
+        x: 400
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -221,19 +221,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17f878582af0728409bf4972b9680065
-      internalID: 2088513084
+      spriteID: 8d30337c9212e6246a72a746ab9697ef
+      internalID: -1902547643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_wander5
+      name: IceMonster_attack5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 256
-        width: 64
+        x: 500
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -242,19 +242,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1790c4314483d3746ad278762bac0bf7
-      internalID: -614937579
+      spriteID: 412886fce03b6784bb6321bb979c84b6
+      internalID: 766745116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_attack1
+      name: IceMonster_attack6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
-        width: 64
+        x: 600
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -263,19 +263,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39be1af6c4ca4934c9f15e8bbd37b910
-      internalID: 207790684
+      spriteID: f65cf78c70e1d87488ebc66c3aa6abfa
+      internalID: 1506399247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_attack6
+      name: IceMonster_attack7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
+        x: 700
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -284,19 +284,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5abb68a1bea174f4d8954f2bfba748b2
-      internalID: -19460
+      spriteID: 54a20de85a2335b4cb9e94139e60cbf7
+      internalID: 418273569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_dead3
+      name: IceMonster_attack8
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
+        x: 800
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -305,19 +305,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f354d0ee3381574185eabea01625082
-      internalID: 1758794931
+      spriteID: 6f29cfb8db2697f498efbb3f639f68d0
+      internalID: 1351005984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_idle1
+      name: IceMonster_attack9
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
+        x: 900
+        y: 0
+        width: 100
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -326,248 +326,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d8057f9ed361a649b808bef0b34a3ec
-      internalID: 1475450590
+      spriteID: 4d1b4954d8048e741a224ab5fbccf3de
+      internalID: -1363216069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_wander1
+      name: IceMonster_dead0
       rect:
         serializedVersion: 2
-        x: 256
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6411ac04a1fd4b749a625f7bd71497f6
-      internalID: 1338435508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_attack2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78187012b8a0e92469f5665abf418e52
-      internalID: 1461918389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_attack7
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1da2678bb4c63e5488ff1f4b658665b1
-      internalID: -1522955384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_dead4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63286a2cb04f9e448903d4590856293f
-      internalID: -2019709675
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_idle2
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67e257dea77e0ef4798c84d4f5f0afaf
-      internalID: 1720779288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_wander2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 428d56298f946dd459044a908776f14c
-      internalID: 1716123501
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_attack3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2de59bfe97e96b4abee145705a72e7f
-      internalID: 1330318551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_dead0
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d847c954668a7264e97b7881b1940f5a
-      internalID: -260181406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_dead5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09abe9f15a28cee42a5343c54afb6bec
-      internalID: -2001837037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_idle3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5834c76b2eb06ef4199cc5052d15d576
-      internalID: 982656396
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_wander3
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68f31c489d74ec947ae882e9a5e0bc9c
-      internalID: -2135672122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IceGolem_attack4
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 1000
         y: 0
         width: 64
         height: 64
@@ -578,17 +347,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4834eabd51660e49835dc9d77c6b4de
-      internalID: -968992066
+      spriteID: ee1fe224ed6a0084bab401772a898c08
+      internalID: 1996817541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_dead1
+      name: IceMonster_dead1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 1064
         y: 0
         width: 64
         height: 64
@@ -599,17 +368,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b173c0f27599fdb4daeb317616dff3bb
-      internalID: 2072736096
+      spriteID: 3d50d4f8bcd5b974fa0236fe1fcf210b
+      internalID: -661858186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_dead6
+      name: IceMonster_dead2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 1128
         y: 0
         width: 64
         height: 64
@@ -620,17 +389,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4adfce2cb5dde6b49853a1c418920f43
-      internalID: 1449680067
+      spriteID: f452d7b5663f89342a01f966633a3df1
+      internalID: 1221994769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_idle4
+      name: IceMonster_dead3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 1192
         y: 0
         width: 64
         height: 64
@@ -641,17 +410,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16bc60e8f0f5b5743bb24abf1c81f4a1
-      internalID: 290763764
+      spriteID: 5916d6a8cfc8d5f4caf3d7e2e08077e3
+      internalID: 1580972399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IceGolem_wander4
+      name: IceMonster_dead4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 1256
         y: 0
         width: 64
         height: 64
@@ -662,8 +431,218 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 502f8e13a1aad2c4fbeb9d78d1dad297
-      internalID: 661962941
+      spriteID: 7553e551874baa942a4d2525309fef08
+      internalID: -466243374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_dead5
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5878dae9afca01a40941ad4369ff05ea
+      internalID: 1857770933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_dead6
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0d405c91faccf44836c075a3e3e79a
+      internalID: 1468840213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_idle0
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541772104dce67047bc7c45e219d70d8
+      internalID: -37230660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_idle1
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cefbeb80ccaf1848a35474c4e4d64bd
+      internalID: -238750359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_idle2
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966b23daaa2730743a121ab4e5fe3620
+      internalID: -1083617202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_idle3
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c34d454b62ab74692dec5eff9b8503
+      internalID: -1509895252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_wander0
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422204557dc705e48b5ce7e6d2d8bdae
+      internalID: -1645546178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_wander1
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f876b8b92d4b98499a2eda62176b2c5
+      internalID: -2032101933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_wander2
+      rect:
+        serializedVersion: 2
+        x: 1832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a9f95feea68e1c4280f32bffbffda64
+      internalID: 1383223235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IceMonster_wander3
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3891cdbde47bc074693799fe00b23b26
+      internalID: -315828505
       vertices: []
       indices: 
       edges: []
@@ -679,32 +658,31 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IceGolem_attack0: -670919950
-      IceGolem_attack1: 207790684
-      IceGolem_attack2: 1461918389
-      IceGolem_attack3: 1330318551
-      IceGolem_attack4: -968992066
-      IceGolem_attack5: 724944416
-      IceGolem_attack6: -19460
-      IceGolem_attack7: -1522955384
-      IceGolem_dead0: -260181406
-      IceGolem_dead1: 2072736096
-      IceGolem_dead2: 1500004400
-      IceGolem_dead3: 1758794931
-      IceGolem_dead4: -2019709675
-      IceGolem_dead5: -2001837037
-      IceGolem_dead6: 1449680067
-      IceGolem_idle0: 466036505
-      IceGolem_idle1: 1475450590
-      IceGolem_idle2: 1720779288
-      IceGolem_idle3: 982656396
-      IceGolem_idle4: 290763764
-      IceGolem_wander0: 2088513084
-      IceGolem_wander1: 1338435508
-      IceGolem_wander2: 1716123501
-      IceGolem_wander3: -2135672122
-      IceGolem_wander4: 661962941
-      IceGolem_wander5: -614937579
+      IceMonster_attack0: -1007928263
+      IceMonster_attack1: 2133161733
+      IceMonster_attack2: -1176621642
+      IceMonster_attack3: -977645895
+      IceMonster_attack4: -1902547643
+      IceMonster_attack5: 766745116
+      IceMonster_attack6: 1506399247
+      IceMonster_attack7: 418273569
+      IceMonster_attack8: 1351005984
+      IceMonster_attack9: -1363216069
+      IceMonster_dead0: 1996817541
+      IceMonster_dead1: -661858186
+      IceMonster_dead2: 1221994769
+      IceMonster_dead3: 1580972399
+      IceMonster_dead4: -466243374
+      IceMonster_dead5: 1857770933
+      IceMonster_dead6: 1468840213
+      IceMonster_idle0: -37230660
+      IceMonster_idle1: -238750359
+      IceMonster_idle2: -1083617202
+      IceMonster_idle3: -1509895252
+      IceMonster_wander0: -1645546178
+      IceMonster_wander1: -2032101933
+      IceMonster_wander2: 1383223235
+      IceMonster_wander3: -315828505
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
