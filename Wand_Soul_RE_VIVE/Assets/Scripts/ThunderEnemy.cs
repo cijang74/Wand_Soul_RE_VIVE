@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,26 +7,25 @@ public class ThunderEnemy : Enemy
     Rigidbody2D rd2d;
     CapsuleCollider2D EnemyCapsule;
 
-
-    [SerializeField] float findDistance = 10f;
+    [SerializeField] float rayLength = 10f; // 레이캐스트 길이
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float attackDistance = 2f;
-    [SerializeField] float attackCooldown = 2f; // ���� �ִϸ��̼� ��� �ð�
-    [SerializeField] float idleTimeAfterAttack = 3f; // ���� �ӵ�
+    [SerializeField] float attackCooldown = 2f;
+    [SerializeField] float idleTimeAfterAttack = 3f;
 
     private Transform target;
     private Animator animator;
 
     private bool isWalking = false;
-
     private bool isAttacking = false;
-
-    private bool canAttack = true; // ���� ���� ���� �÷���
+    private bool canAttack = true;
+    private bool hasDetectedPlayer = false; // 플레이어 발견 여부
 
     ThunderEnemy()
     {
         hp = 8;
     }
+
     void Start()
     {
         rd2d = GetComponent<Rigidbody2D>();
@@ -38,48 +37,40 @@ public class ThunderEnemy : Enemy
     private void StopMoving()
     {
         rd2d.velocity = new Vector2(0, rd2d.velocity.y);
-        //walking 애니메이션 중지
         animator.ResetTrigger("isWalking");
         isWalking = false;
-        //
     }
 
     private void MoveTowardPlayer()
     {
         if (!isAttacking)
         {
-            //walking 애니메이션 추가
             isWalking = true;
             animator.SetTrigger("isWalking");
-            //
+
             float moveDirection = target.position.x > transform.position.x ? 1 : -1;
             Vector2 enemyVelocity = new Vector2(moveSpeed * moveDirection, rd2d.velocity.y);
             rd2d.velocity = enemyVelocity;
-            if (moveDirection < 0)
-                FlipEnemyFacing();
-            else if (moveDirection > 0)
-                FlipEnemyFacing();
+
+            FlipEnemyFacing(moveDirection);
         }
     }
 
     private IEnumerator AttackPlayer()
     {
         isAttacking = true;
-        canAttack = false; // ���� �ð� ���� ���� �Ұ���
+        canAttack = false;
 
-        StopMoving(); // ���� �߿��� ����
+        StopMoving();
         animator.SetTrigger("isAttack");
 
         yield return new WaitForSeconds(attackCooldown);
 
         animator.ResetTrigger("isAttack");
 
-        isAttacking = false; // ���� �ִϸ��̼��� ���� ���� isAttacking�� false�� ����
-
-        // idle �Ǵ� �̵� ���·� ��ȯ
         yield return new WaitForSeconds(idleTimeAfterAttack);
-
-        canAttack = true; // �ٽ� ���� ����
+        isAttacking = false;
+        canAttack = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -90,12 +81,11 @@ public class ThunderEnemy : Enemy
         }
     }
 
-    void FlipEnemyFacing()
+    void FlipEnemyFacing(float moveDirection)
     {
-        transform.localScale = new Vector2(-(Mathf.Sign(rd2d.velocity.x)), 1f);
+        transform.localScale = new Vector2(-(Mathf.Sign(moveDirection)), 1f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (hp <= 0)
@@ -103,27 +93,40 @@ public class ThunderEnemy : Enemy
             Die();
             return;
         }
-        if (target == null)
+
+        if (target == null) return;
+
+        // 플레이어가 적보다 아래에 있고 아직 발견되지 않은 경우 행동 중지
+        if (target.position.y < transform.position.y && !hasDetectedPlayer)
         {
+            StopMoving();
             return;
         }
 
-        float distanceToPlayer = Vector2.Distance(transform.position, target.position);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, target.position - transform.position, rayLength, LayerMask.GetMask("Player"));
+        Debug.DrawRay(transform.position, (target.position - transform.position).normalized * rayLength, Color.red);
 
-        if (distanceToPlayer > findDistance)
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
+        {
+            hasDetectedPlayer = true; // 플레이어를 발견함
+            float distanceToPlayer = Vector2.Distance(transform.position, target.position);
+
+            if (distanceToPlayer <= attackDistance && canAttack)
+            {
+                if (!isAttacking)
+                {
+                    StartCoroutine(AttackPlayer());
+                }
+            }
+            else if (!isAttacking)
+            {
+                MoveTowardPlayer();
+            }
+        }
+        else
         {
             StopMoving();
         }
-        else if (distanceToPlayer <= attackDistance && canAttack)
-        {
-            if (!isAttacking)
-            {
-                StartCoroutine(AttackPlayer());
-            }
-        }
-        else if (!isAttacking) // ���� ���� �ƴ� ���� �̵�
-        {
-            MoveTowardPlayer();
-        }
     }
 }
+

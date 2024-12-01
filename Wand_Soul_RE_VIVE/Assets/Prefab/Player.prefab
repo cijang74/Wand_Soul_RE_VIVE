@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7813280604172021605}
   - component: {fileID: -8430843233149632693}
   - component: {fileID: 5639388236977428590}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  jumpSpeed: 10
+  jumpSpeed: 13
   hp: 10
 --- !u!70 &-7813280604172021605
 CapsuleCollider2D:
@@ -157,8 +157,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14510185, y: -0.17382598}
-  m_Size: {x: 0.67515767, y: 1.5569525}
+  m_Offset: {x: -0.064767, y: -0.19893062}
+  m_Size: {x: 0.514488, y: 1.6071618}
   m_Direction: 0
 --- !u!50 &-8430843233149632693
 Rigidbody2D:
