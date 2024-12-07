@@ -160,8 +160,8 @@ public class Boss : MonoBehaviour, IEnemy
         Debug.Log("Skill 2 executed!");
         // 스킬2 로직 추가
         // 스포너 생성 위치
-        Vector3 leftSpawnPosition = new Vector3(target.position.x - 3f, target.position.y + 5f, 0);
-        Vector3 rightSpawnPosition = new Vector3(target.position.x + 3f, target.position.y + 5f, 0);
+        Vector3 leftSpawnPosition = new Vector3(target.position.x - 4f, target.position.y + 5f, 0);
+        Vector3 rightSpawnPosition = new Vector3(target.position.x + 4f, target.position.y + 5f, 0);
 
         // 스포너 프리팹 생성
         GameObject leftSpawner = Instantiate(bulletSpawnerPrefab, leftSpawnPosition, Quaternion.identity);
@@ -186,5 +186,63 @@ public class Boss : MonoBehaviour, IEnemy
     {
         Debug.Log("Skill 3 executed!");
         // 스킬3 로직 추가
+        // 1. 순간이동 위치 결정
+        Vector3 teleportPosition = DetermineTeleportPosition();
+
+        // 2. 순간이동
+        StartCoroutine(TeleportAndCharge(teleportPosition));
+    }
+
+    private Vector3 DetermineTeleportPosition()
+    {
+        // 플레이어의 위치를 기준으로 결정
+        float xOffset = Random.value > 0.5f ? 3f : -3f; // 50% 확률로 +3 또는 -3
+        return new Vector3(target.position.x + xOffset, target.position.y, transform.position.z);
+    }
+
+    private IEnumerator TeleportAndCharge(Vector3 teleportPosition)
+    {
+        // 순간이동
+        transform.position = teleportPosition;
+
+        // 잠깐 대기
+        yield return new WaitForSeconds(1f);
+
+        // 몸통박치기 실행
+        Vector3 chargeDirection = teleportPosition.x < target.position.x ? Vector3.right : Vector3.left;
+        float chargeDistance = 12f;
+        float chargeSpeed = 10f;
+
+        Vector3 destination = transform.position + chargeDirection * chargeDistance;
+
+        // 몸통박치기 이동
+        float elapsedTime = 0f;
+        float chargeDuration = chargeDistance / chargeSpeed;
+
+        while (elapsedTime < chargeDuration)
+        {
+            transform.position = Vector3.Lerp(transform.position, destination, elapsedTime / chargeDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 충돌 판정을 위해 Collider 추가 로직 작성 가능
+        Debug.Log("Charge complete!");
+
+        // 몸통박치기 종료 후 보스의 다음 행동 준비
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(2, transform); // 데미지 2 전달
+            }
+
+            Debug.Log("Player hit by Boss charge!");
+        }
     }
 }
