@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cloud
+      name: Boss_cloud0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 211
         width: 64
-        height: 64
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,19 +137,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15aef6275bcc634438b56276772dd294
-      internalID: 466665464
+      spriteID: ca65cac9e2e119245b8e181b790d8f58
+      internalID: 1690833220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ice
+      name: Boss_cloud1
       rect:
         serializedVersion: 2
         x: 0
+        y: 147
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3efd77f0580bed24084b62c889c9e0af
+      internalID: -240910134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_ice
+      rect:
+        serializedVersion: 2
+        x: 18
         y: 64
-        width: 64
+        width: 29
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -158,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21fc89ebc8d94fa4dbb6308a10abf37c
-      internalID: 321258486
+      spriteID: 3b73d004c50b5d049819df6d13959f73
+      internalID: 3986111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Thunder
+      name: Boss_thunder
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 19
+        y: 2
+        width: 24
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16e358978df314542a304069ef6e5f95
-      internalID: 59821961
+      spriteID: 0a73425f9f20fa5498f724d56e713925
+      internalID: 1546263418
       vertices: []
       indices: 
       edges: []
@@ -196,9 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cloud: 466665464
-      Ice: 321258486
-      Thunder: 59821961
+      Boss_cloud0: 1690833220
+      Boss_cloud1: -240910134
+      Boss_ice: 3986111
+      Boss_thunder: 1546263418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
