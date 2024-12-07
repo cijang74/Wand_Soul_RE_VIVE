@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5899673558410975324}
   - component: {fileID: 811710899303543044}
   - component: {fileID: 752810439663200049}
+  - component: {fileID: 5205807302943607745}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -106,3 +107,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5205807302943607745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5401595541922305976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fdb2c2478591c64c84e4c4366a01a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillCoolDown: 3
+  skill1Chance: 5
+  skill2Chance: 2
+  skill3Chance: 3
+  iceSpikePrefab: {fileID: 703917380374878545, guid: 9f17d57c14edff94793e7b8faf4fc917, type: 3}
+  spikeCount: 7
+  horizontalSpacing: 6.9
+  spawnHeight: 10
+  dangerZoneDuration: 2
