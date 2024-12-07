@@ -19,11 +19,34 @@ public class Boss : MonoBehaviour, IEnemy
     [SerializeField] private float spawnHeight = 10f;  // 고드름 생성 높이
     [SerializeField] private float dangerZoneDuration = 2f; // 선 표시 지속 시간
 
+    [SerializeField] private GameObject bulletSpawnerPrefab; // 총탄 스포너 프리팹
+
     private bool canUseSkill = true;
 
     public void Attack() { }
     public void Trace() { }
     public void Stop() { }
+
+    //보스는 이동을 안해서 따로 쳐다보는 것 추가했어요.
+    private void FacePlayer()
+    {
+        if (target == null) return;
+
+        // 플레이어와의 방향 계산
+        Vector3 direction = (target.position - transform.position).normalized;
+
+        // 방향에 따라 보스의 Scale을 조정하여 Flip
+        if (direction.x > 0)
+        {
+            // 오른쪽을 바라보도록 설정
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (direction.x < 0)
+        {
+            // 왼쪽을 바라보도록 설정
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+    }
 
     private void Start()
     {
@@ -38,6 +61,8 @@ public class Boss : MonoBehaviour, IEnemy
         {
             StartCoroutine(UseRandomSkill());
         }
+        // 플레이어 바라보기
+        FacePlayer();
     }
 
     private IEnumerator UseRandomSkill()
@@ -134,6 +159,27 @@ public class Boss : MonoBehaviour, IEnemy
     {
         Debug.Log("Skill 2 executed!");
         // 스킬2 로직 추가
+        // 스포너 생성 위치
+        Vector3 leftSpawnPosition = new Vector3(target.position.x - 3f, target.position.y + 5f, 0);
+        Vector3 rightSpawnPosition = new Vector3(target.position.x + 3f, target.position.y + 5f, 0);
+
+        // 스포너 프리팹 생성
+        GameObject leftSpawner = Instantiate(bulletSpawnerPrefab, leftSpawnPosition, Quaternion.identity);
+        GameObject rightSpawner = Instantiate(bulletSpawnerPrefab, rightSpawnPosition, Quaternion.identity);
+
+        // 각 스포너에 초기화 호출
+        BulletSpawner leftBulletSpawner = leftSpawner.GetComponent<BulletSpawner>();
+        BulletSpawner rightBulletSpawner = rightSpawner.GetComponent<BulletSpawner>();
+
+        if (leftBulletSpawner != null)
+        {
+            leftBulletSpawner.Initialize(Vector3.left); // 왼쪽 방향 스포너
+        }
+
+        if (rightBulletSpawner != null)
+        {
+            rightBulletSpawner.Initialize(Vector3.right); // 오른쪽 방향 스포너
+        }
     }
 
     private void Skill3()
