@@ -1,49 +1,49 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab; // ¹ß»çÇÒ ÃÑÅº ÇÁ¸®ÆÕ
-    [SerializeField] private float fireRate = 0.5f;   // ¹ß»ç °£°İ
-    [SerializeField] private int bulletCount = 8;    // ÃÑÅº ¹ß»ç °³¼ö
-    [SerializeField] private float bulletSpeed = 5f; // ÃÑÅº ¼Óµµ
-    [SerializeField] private float lifetime = 5f;    // ½ºÆ÷³Ê¿Í ÃÑÅºÀÇ Áö¼Ó ½Ã°£
+    [SerializeField] private GameObject bulletPrefab; // ë°œì‚¬í•  ì´íƒ„ í”„ë¦¬íŒ¹
+    [SerializeField] private float fireRate = 0.5f;   // ë°œì‚¬ ê°„ê²©
+    [SerializeField] private int bulletCount = 8;    // ì´íƒ„ ë°œì‚¬ ê°œìˆ˜
+    [SerializeField] private float bulletSpeed = 5f; // ì´íƒ„ ì†ë„
+    [SerializeField] private float lifetime = 5f;    // ìŠ¤í¬ë„ˆì™€ ì´íƒ„ì˜ ì§€ì† ì‹œê°„
 
-    private Vector3 direction; // ÃÑÅº ¹ß»ç ¹æÇâ
+    private Vector3 direction; // ì´íƒ„ ë°œì‚¬ ë°©í–¥
 
     public void Initialize(Vector3 spawnDirection)
     {
-        direction = spawnDirection.normalized; // ¹æÇâ ÃÊ±âÈ­
+        direction = spawnDirection.normalized; // ë°©í–¥ ì´ˆê¸°í™”
         StartCoroutine(SpawnBullets());
     }
 
     private IEnumerator SpawnBullets()
     {
-        float angleStep = 360f / bulletCount; // °¢ ÃÑÅºÀÇ °¢µµ °£°İ
+        float angleStep = 360f / bulletCount; // ê° ì´íƒ„ì˜ ê°ë„ ê°„ê²©
         float angle = 0f;
 
         for (int i = 0; i < bulletCount; i++)
         {
-            // °¢µµ¿¡ µû¸¥ ¹ß»ç ¹æÇâ °è»ê
+            // ê°ë„ì— ë”°ë¥¸ ë°œì‚¬ ë°©í–¥ ê³„ì‚°
             float bulletDirX = Mathf.Cos(angle * Mathf.Deg2Rad);
             float bulletDirY = Mathf.Sin(angle * Mathf.Deg2Rad);
 
             Vector3 bulletDirection = new Vector3(bulletDirX, bulletDirY, 0).normalized;
 
-            // ÃÑÅº »ı¼º
+            // ì´íƒ„ ìƒì„±
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.velocity = bulletDirection * bulletSpeed;
 
-            Destroy(bullet, lifetime); // ÃÑÅº ÀÏÁ¤ ½Ã°£ ÈÄ ÆÄ±«
+            Destroy(bullet, lifetime); // ì´íƒ„ ì¼ì • ì‹œê°„ í›„ íŒŒê´´
 
-            angle += angleStep; // °¢µµ Áõ°¡
+            angle += angleStep; // ê°ë„ ì¦ê°€
         }
 
         yield return new WaitForSeconds(fireRate);
 
-        // ½ºÆ÷³Ê ÆÄ±«
+        // ìŠ¤í¬ë„ˆ íŒŒê´´
         Destroy(gameObject);
     }
 }
