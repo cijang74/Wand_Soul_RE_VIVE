@@ -1,23 +1,23 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : MonoBehaviour, IEnemy
 {
-    private Transform target; // ÇÃ·¹ÀÌ¾îÀÇ Transform Á¤º¸
-    private Animator animator; // ¾Ö´Ï¸ŞÀÌ¼Ç Á¦¾î¸¦ À§ÇÑ Animator ÄÄÆ÷³ÍÆ®
-    private EnemyPathfinding enemyPathfinding; // °æ·Î Å½»ö¿ë ÄÄÆ÷³ÍÆ®
+    private Transform target; // í”Œë ˆì´ì–´ì˜ Transform ì •ë³´
+    private Animator animator; // ì• ë‹ˆë©”ì´ì…˜ ì œì–´ë¥¼ ìœ„í•œ Animator ì»´í¬ë„ŒíŠ¸
+    private EnemyPathfinding enemyPathfinding; // ê²½ë¡œ íƒìƒ‰ìš© ì»´í¬ë„ŒíŠ¸
 
     [SerializeField] private float skillCoolDown = 3f;
-    [SerializeField] private int skill1Chance = 5;    // ½ºÅ³1 È®·ü
-    [SerializeField] private int skill2Chance = 2;    // ½ºÅ³2 È®·ü
-    [SerializeField] private int skill3Chance = 3;    // ½ºÅ³3 È®·ü
+    [SerializeField] private int skill1Chance = 5;    // ìŠ¤í‚¬1 í™•ë¥ 
+    [SerializeField] private int skill2Chance = 2;    // ìŠ¤í‚¬2 í™•ë¥ 
+    [SerializeField] private int skill3Chance = 3;    // ìŠ¤í‚¬3 í™•ë¥ 
 
-    [SerializeField] private GameObject iceSpikePrefab; // °íµå¸§ ÇÁ¸®ÆÕ
-    [SerializeField] private int spikeCount = 7;        // °íµå¸§ °³¼ö
-    [SerializeField] private float horizontalSpacing = 2f; // °íµå¸§ °£°İ
-    [SerializeField] private float spawnHeight = 10f;  // °íµå¸§ »ı¼º ³ôÀÌ
-    [SerializeField] private float dangerZoneDuration = 2f; // ¼± Ç¥½Ã Áö¼Ó ½Ã°£
+    [SerializeField] private GameObject iceSpikePrefab; // ê³ ë“œë¦„ í”„ë¦¬íŒ¹
+    [SerializeField] private int spikeCount = 7;        // ê³ ë“œë¦„ ê°œìˆ˜
+    [SerializeField] private float horizontalSpacing = 2f; // ê³ ë“œë¦„ ê°„ê²©
+    [SerializeField] private float spawnHeight = 10f;  // ê³ ë“œë¦„ ìƒì„± ë†’ì´
+    [SerializeField] private float dangerZoneDuration = 2f; // ì„  í‘œì‹œ ì§€ì† ì‹œê°„
 
     private bool canUseSkill = true;
 
@@ -47,15 +47,15 @@ public class Boss : MonoBehaviour, IEnemy
         int totalChance = skill1Chance + skill2Chance + skill3Chance;
         int randomSkill = Random.Range(0, totalChance);
 
-        if (randomSkill < skill1Chance) // ½ºÅ³1
+        if (randomSkill < skill1Chance) // ìŠ¤í‚¬1
         {
             Skill1();
         }
-        else if (randomSkill < skill1Chance + skill2Chance) // ½ºÅ³2
+        else if (randomSkill < skill1Chance + skill2Chance) // ìŠ¤í‚¬2
         {
             Skill2();
         }
-        else // ½ºÅ³3
+        else // ìŠ¤í‚¬3
         {
             Skill3();
         }
@@ -68,32 +68,32 @@ public class Boss : MonoBehaviour, IEnemy
     {
         Debug.Log("Skill 1 executed!");
 
-        // 1. À§Çè ¿µ¿ª Ç¥½Ã
+        // 1. ìœ„í—˜ ì˜ì—­ í‘œì‹œ
         StartCoroutine(DrawDangerZone());
     }
 
     private IEnumerator DrawDangerZone()
     {
-        // °íµå¸§ À§Ä¡ ÀúÀå¿ë ¸®½ºÆ®
+        // ê³ ë“œë¦„ ìœ„ì¹˜ ì €ì¥ìš© ë¦¬ìŠ¤íŠ¸
         List<Vector3> spikePositions = new List<Vector3>();
 
         float startX = target.position.x - (horizontalSpacing * (spikeCount - 1)) / 2;
 
         for (int i = 0; i < spikeCount; i++)
         {
-            // LineRenderer¸¦ µ¿ÀûÀ¸·Î »ı¼º
+            // LineRendererë¥¼ ë™ì ìœ¼ë¡œ ìƒì„±
             GameObject lineObject = new GameObject("LineRenderer_" + i);
             LineRenderer line = lineObject.AddComponent<LineRenderer>();
 
-            // LineRenderer ±âº» ¼³Á¤
-            line.material = new Material(Shader.Find("Unlit/Color")); // Unlit Shader·Î ¼³Á¤
-            line.material.color = Color.red; // »¡°£»öÀ¸·Î ¼³Á¤
-            line.positionCount = 2; // ½ÃÀÛÁ¡°ú ³¡Á¡
+            // LineRenderer ê¸°ë³¸ ì„¤ì •
+            line.material = new Material(Shader.Find("Unlit/Color")); // Unlit Shaderë¡œ ì„¤ì •
+            line.material.color = Color.red; // ë¹¨ê°„ìƒ‰ìœ¼ë¡œ ì„¤ì •
+            line.positionCount = 2; // ì‹œì‘ì ê³¼ ëì 
             line.startWidth = 1f;
             line.endWidth = 1f;
             line.useWorldSpace = true;
 
-            // ¶óÀÎ ½ÃÀÛÁ¡°ú ³¡Á¡ ¼³Á¤
+            // ë¼ì¸ ì‹œì‘ì ê³¼ ëì  ì„¤ì •
             float x = startX + i * horizontalSpacing;
             Vector3 startPoint = new Vector3(x, target.position.y + spawnHeight, 0);
             Vector3 endPoint = new Vector3(x, target.position.y - 10, 0);
@@ -101,44 +101,44 @@ public class Boss : MonoBehaviour, IEnemy
             line.SetPosition(0, startPoint);
             line.SetPosition(1, endPoint);
 
-            // °íµå¸§ÀÌ »ı¼ºµÉ À§Ä¡¸¦ ¸®½ºÆ®¿¡ Ãß°¡
+            // ê³ ë“œë¦„ì´ ìƒì„±ë  ìœ„ì¹˜ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
             spikePositions.Add(startPoint);
 
-            // dangerZoneDuration ÈÄ LineRenderer Á¦°Å
+            // dangerZoneDuration í›„ LineRenderer ì œê±°
             Destroy(lineObject, dangerZoneDuration);
         }
 
-        // ¶óÀÎ Ç¥½Ã ½Ã°£ ´ë±â
+        // ë¼ì¸ í‘œì‹œ ì‹œê°„ ëŒ€ê¸°
         yield return new WaitForSeconds(dangerZoneDuration);
 
-        // ¶óÀÎ Á¦°Å ÈÄ °íµå¸§ »ı¼º È£Ãâ
+        // ë¼ì¸ ì œê±° í›„ ê³ ë“œë¦„ ìƒì„± í˜¸ì¶œ
         StartCoroutine(SpawnVerticalIceSpikes(spikePositions));
     }
 
     private IEnumerator SpawnVerticalIceSpikes(List<Vector3> spikePositions)
     {
-        // °íµå¸§ »ı¼º
+        // ê³ ë“œë¦„ ìƒì„±
         foreach (var position in spikePositions)
         {
             GameObject spike = Instantiate(iceSpikePrefab, position, Quaternion.identity);
 
-            // °íµå¸§ ¾Æ·¡·Î ¶³¾îÁö´Â ¼Óµµ ¼³Á¤
+            // ê³ ë“œë¦„ ì•„ë˜ë¡œ ë–¨ì–´ì§€ëŠ” ì†ë„ ì„¤ì •
             Rigidbody2D rb = spike.GetComponent<Rigidbody2D>();
-            rb.velocity = Vector2.down * 5f; // ¾Æ·¡·Î ¶³¾îÁö´Â ¼Óµµ
+            rb.velocity = Vector2.down * 5f; // ì•„ë˜ë¡œ ë–¨ì–´ì§€ëŠ” ì†ë„
         }
 
-        yield return null; // ÄÚ·çÆ¾ Á¾·á
+        yield return null; // ì½”ë£¨í‹´ ì¢…ë£Œ
     }
 
     private void Skill2()
     {
         Debug.Log("Skill 2 executed!");
-        // ½ºÅ³2 ·ÎÁ÷ Ãß°¡
+        // ìŠ¤í‚¬2 ë¡œì§ ì¶”ê°€
     }
 
     private void Skill3()
     {
         Debug.Log("Skill 3 executed!");
-        // ½ºÅ³3 ·ÎÁ÷ Ãß°¡
+        // ìŠ¤í‚¬3 ë¡œì§ ì¶”ê°€
     }
 }

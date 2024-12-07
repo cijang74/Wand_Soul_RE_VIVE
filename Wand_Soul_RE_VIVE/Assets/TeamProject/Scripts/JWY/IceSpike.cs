@@ -1,28 +1,28 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class IceSpike : MonoBehaviour
 {
-    [SerializeField] private float destroyDelay = 3f; // ÆÄ±«µÉ ½Ã°£ (±âº»°ª: 3ÃÊ)
-    [SerializeField] private int damage = 1; // ÇÃ·¹ÀÌ¾î¿¡°Ô ÁÙ µ¥¹ÌÁö
+    [SerializeField] private float destroyDelay = 3f; // íŒŒê´´ë  ì‹œê°„ (ê¸°ë³¸ê°’: 3ì´ˆ)
+    [SerializeField] private int damage = 1; // í”Œë ˆì´ì–´ì—ê²Œ ì¤„ ë°ë¯¸ì§€
 
 
     private void Start()
     {
-        // destroyDelay ÈÄ¿¡ ¿ÀºêÁ§Æ® ÆÄ±«
+        // destroyDelay í›„ì— ì˜¤ë¸Œì íŠ¸ íŒŒê´´
         Destroy(gameObject, destroyDelay);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ ÇÃ·¹ÀÌ¾îÀÏ °æ¿ì
+        // ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ê°€ í”Œë ˆì´ì–´ì¼ ê²½ìš°
         if (other.CompareTag("Player"))
         {
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                // ÇÃ·¹ÀÌ¾î¿¡°Ô µ¥¹ÌÁö Àû¿ë
+                // í”Œë ˆì´ì–´ì—ê²Œ ë°ë¯¸ì§€ ì ìš©
                 playerHealth.TakeDamage(damage, transform);
             }
         }
