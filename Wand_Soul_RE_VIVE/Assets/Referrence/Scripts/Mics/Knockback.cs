@@ -7,6 +7,7 @@ public class Knockback : MonoBehaviour
     [SerializeField] private float knockbackTime = .2f;
 
     private Rigidbody2D rb;
+    private Boss boss;
     public bool GettingKnockedBack {get; private set; }
     // 위 생략방식은 아래 함수들과 같은 역할을 한다. 단, 참조 변수는 무조건 private이어야만 한다.
     // public bool GetgettingKnockedBack()
@@ -22,10 +23,17 @@ public class Knockback : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        boss = GetComponent<Boss>();
     }
 
     public void GetKnockedBack(Transform damageSource, float KnockBackThrust)
     {
+        if(boss != null)
+        {
+            return;
+        }
+
+
         GettingKnockedBack = true;
         // 데미지가 가해지는 방향(왼쪽에서 맞았으면 오른쪽으로 밀려나가야 함), 
         // 넉백 추력(무기에 따라 다를 수 있음.)을 매개변수로 받아서 넉벡을 시켜주는 함수.
