@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "2D Top Down Pixel Combat.sln"
+    "dotnet.defaultSolution": "Wand_Soul_RE_VIVE.sln"
 }
