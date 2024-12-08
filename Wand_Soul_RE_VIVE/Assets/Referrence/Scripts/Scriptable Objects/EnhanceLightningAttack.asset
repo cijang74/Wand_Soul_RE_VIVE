@@ -16,4 +16,4 @@ MonoBehaviour:
   weaponCastingTime: 0
   weaponDamage: 0
   weaponRange: 0
-  weaponIcon: {fileID: 0}
+  weaponIcon: {fileID: -2129312161, guid: 96b4d70bfeac9e942a37283376dcc4c2, type: 3}
