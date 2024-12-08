@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,5 +48,19 @@ public class EnemyHealth : MonoBehaviour
             GetComponent<PickUpSpawner>().DropItems();
             Destroy(gameObject);
         }
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public int GetMaxHealth()
+    {
+        return startingHealth;
+    }
+    public void InitializeHealth(int health)
+    {
+        currentHealth = health;
     }
 }

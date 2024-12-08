@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour, IEnemy
     private Transform target; // 플레이어의 Transform 정보
     private Animator animator; // 애니메이션 제어를 위한 Animator 컴포넌트
     private EnemyPathfinding enemyPathfinding; // 경로 탐색용 컴포넌트
+    private EnemyHealth enemyHealth;
 
     [SerializeField] private float skillCoolDown = 3f;
     [SerializeField] private int skill1Chance = 5;    // 스킬1 확률
@@ -20,6 +21,9 @@ public class Boss : MonoBehaviour, IEnemy
     [SerializeField] private float dangerZoneDuration = 2f; // 선 표시 지속 시간
 
     [SerializeField] private GameObject bulletSpawnerPrefab; // 총탄 스포너 프리팹
+
+    [SerializeField] private GameObject bossPrefab;
+    private bool bossSpawned = false;
 
     private bool canUseSkill = true;
 
@@ -53,6 +57,7 @@ public class Boss : MonoBehaviour, IEnemy
         target = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         enemyPathfinding = GetComponent<EnemyPathfinding>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     private void Update()
@@ -63,6 +68,11 @@ public class Boss : MonoBehaviour, IEnemy
         }
         // 플레이어 바라보기
         FacePlayer();
+
+        if (!bossSpawned && enemyHealth.GetCurrentHealth() <= enemyHealth.GetMaxHealth() / 2)
+        {
+            SpawnAdditionalBoss();
+        }
     }
 
     private IEnumerator UseRandomSkill()
@@ -244,5 +254,23 @@ public class Boss : MonoBehaviour, IEnemy
 
             Debug.Log("Player hit by Boss charge!");
         }
+    }
+
+    private void SpawnAdditionalBoss()
+    {
+        bossSpawned = true; // 보스가 이미 생성되었음을 표시
+        Vector3 spawnPosition = transform.position + new Vector3(5f, 0, 0); // 기존 보스의 오른쪽에 생성
+        Instantiate(bossPrefab, spawnPosition, Quaternion.identity);
+        GameObject newBoss = Instantiate(bossPrefab, spawnPosition, Quaternion.identity);
+
+
+        // 생성된 보스의 체력을 절반으로 설정
+        EnemyHealth newBossHealth = newBoss.GetComponent<EnemyHealth>();
+        if (newBossHealth != null)
+        {
+            newBossHealth.InitializeHealth(newBossHealth.GetMaxHealth() / 2);
+        }
+
+        Debug.Log("Additional Boss spawned!");
     }
 }
