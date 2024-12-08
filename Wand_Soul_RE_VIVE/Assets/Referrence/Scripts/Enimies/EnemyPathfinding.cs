@@ -36,15 +36,15 @@ public class EnemyPathfinding : MonoBehaviour
         // // 움직이려는 객체의 최근 포지션 + (이동벡터값 * (이동속도 * 프레임))
 
         // 움직이는 방향에 따라 스프라이트 뒤집어주기
-        if(moveDir.x < 0)
+        if (moveDir.x != 0)
         {
-            spriteRenderer.flipX = false;
+            FlipEnemyFacing(moveDir.x); // Use the FlipEnemyFacing function here
         }
+    }
 
-        else if(moveDir.x > 0)
-        {
-            spriteRenderer.flipX = true;
-        }
+    void FlipEnemyFacing(float moveDirection)
+    {
+        transform.localScale = new Vector2(-(Mathf.Sign(moveDirection)), 1f); // 적의 좌우 방향 전환
     }
 
     public void StopMoving()
