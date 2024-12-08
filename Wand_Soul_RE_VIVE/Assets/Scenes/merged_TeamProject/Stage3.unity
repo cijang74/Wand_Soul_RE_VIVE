@@ -768,6 +768,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3125520179055501347, guid: 50f1f2c8e7e781147860182c9119f81b, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205807302943607745, guid: 50f1f2c8e7e781147860182c9119f81b, type: 3}
+      propertyPath: bossPrefab
+      value: 
+      objectReference: {fileID: 5401595541922305976, guid: 50f1f2c8e7e781147860182c9119f81b, type: 3}
     - target: {fileID: 5401595541922305976, guid: 50f1f2c8e7e781147860182c9119f81b, type: 3}
       propertyPath: m_Name
       value: Boss
