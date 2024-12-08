@@ -201,7 +201,7 @@ MonoBehaviour:
   spikeCount: 11
   horizontalSpacing: 4
   spawnHeight: 10
-  dangerZoneDuration: 1
+  dangerZoneDuration: 0.5
   bulletSpawnerPrefab: {fileID: 3694712828864043101, guid: 01c99aac7c2ffab46a20093fc7b2f592, type: 3}
 --- !u!114 &3125520179055501347
 MonoBehaviour:

@@ -149,7 +149,7 @@ public class Boss : MonoBehaviour, IEnemy
 
             // 고드름 아래로 떨어지는 속도 설정
             Rigidbody2D rb = spike.GetComponent<Rigidbody2D>();
-            rb.velocity = Vector2.down * 5f; // 아래로 떨어지는 속도
+            rb.velocity = Vector2.down * 10f; // 아래로 떨어지는 속도
         }
 
         yield return null; // 코루틴 종료
