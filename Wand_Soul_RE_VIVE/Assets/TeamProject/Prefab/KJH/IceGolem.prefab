@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 6739385145477994847}
   - component: {fileID: 3909971609483895390}
   - component: {fileID: 7249844168707603313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IceGolem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,12 +203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d57d3f83f894347b21ce31ec206d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 10
-  traceRange: 5
-  attackDistance: 2
+  traceRange: 7
+  attackDistance: 1.5
   enemyType: {fileID: 7923578408441893748}
-  attackCoolDown: 2
-  attackDuration: 1
+  attackCoolDown: 1.5
+  attackDuration: 2
 --- !u!114 &2107274468308294106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11b49e3f9b5508479c6600cef5ac6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
 --- !u!114 &3204536239228557755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460e203716a90b24cae74c92e6717369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 10
   deathVFXPrefab: {fileID: 4325406826078990300, guid: 11a30decb6d8f0d44a68a4a73e6ab1b2, type: 3}
   knockbackThrust: 15
 --- !u!114 &6383232713241924692
@@ -302,7 +301,7 @@ GameObject:
   - component: {fileID: 7294139150856117584}
   - component: {fileID: 7739906936487920633}
   - component: {fileID: 2059232710584147980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

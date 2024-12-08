@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -2796978207705812452}
   - component: {fileID: -2078426535577910869}
   - component: {fileID: -7715140353336724385}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ThunderMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,8 +176,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06996285, y: -0.20073412}
-  m_Size: {x: 1.3096286, y: 1.4822212}
+  m_Offset: {x: 0.136338, y: -0.262684}
+  m_Size: {x: 1.1768785, y: 1.3583215}
   m_Direction: 0
 --- !u!114 &-3164856481144122511
 MonoBehaviour:
@@ -203,9 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d57d3f83f894347b21ce31ec206d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 10
-  traceRange: 5
-  attackDistance: 2
+  traceRange: 10
+  attackDistance: 1
   enemyType: {fileID: -3164856481144122511}
   attackCoolDown: 2
   attackDuration: 1
@@ -221,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11b49e3f9b5508479c6600cef5ac6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
 --- !u!114 &1547054998002026500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +301,7 @@ GameObject:
   - component: {fileID: 7309478339593841806}
   - component: {fileID: 6035323258719428772}
   - component: {fileID: 8766489289112063235}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

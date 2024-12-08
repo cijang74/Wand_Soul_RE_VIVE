@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -1300379012406234057}
   - component: {fileID: 3862979890939386059}
   - component: {fileID: 2218579792504860429}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triffid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   traceRange: 5
-  attackDistance: 2
+  attackDistance: 1
   enemyType: {fileID: 8886622304215328595}
   attackCoolDown: 2
   attackDuration: 1
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 7869041895940357423}
   - component: {fileID: 3814089344206460170}
   - component: {fileID: 7728299779187536450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
