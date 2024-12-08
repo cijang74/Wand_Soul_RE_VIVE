@@ -9,11 +9,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Cinemachime Confiner
   - Water
   - UI
   - Ground
+<<<<<<< HEAD
   - 
+=======
+  - Player
+>>>>>>> 장우용2
   - 
   - 
   - 
