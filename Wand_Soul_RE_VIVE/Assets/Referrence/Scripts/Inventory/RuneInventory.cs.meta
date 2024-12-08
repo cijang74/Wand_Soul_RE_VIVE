@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 7b52683c4d06b7c409c11cc724941f6a
+guid: 04f765c66facf0b44b25e024d7c92245
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - castingCircle: {fileID: 5734373930666403876, guid: 4808abf148c0ea442b553fbdafe7b3dc, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

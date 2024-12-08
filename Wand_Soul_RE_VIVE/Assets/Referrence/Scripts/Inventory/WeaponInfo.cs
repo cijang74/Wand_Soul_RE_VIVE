@@ -10,7 +10,9 @@ public class WeaponInfo : ScriptableObject
     // 해당 오브젝트의 속성값(인스펙터에 뜰 요소들)
     public GameObject weaponPrefab;
 
-    public float weaponCooldown; // 쿨타임
+    public float weaponCastingTime; // 시전 시간
     public int weaponDamage; // 데미지
     public float weaponRange; // 사정거리
+
+    public Sprite weaponIcon;
 }

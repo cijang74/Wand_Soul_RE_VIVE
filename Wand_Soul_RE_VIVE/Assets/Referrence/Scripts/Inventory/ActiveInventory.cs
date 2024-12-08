@@ -65,10 +65,10 @@ public class ActiveInventory : Singleton<ActiveInventory>
             return;
         }
 
-        if(ActiveWeapon.Instance.CurrentActiveWeapon != null)
+        if(ActiveWeapon.Instance.CurrentLeftActiveWeapon != null)
         // 현재 선택중인 무기를 삭제하는 제어문. 항상 가장 상단에 위치시켜놓아야함.
         {
-            Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
+            Destroy(ActiveWeapon.Instance.CurrentLeftActiveWeapon.gameObject);
         }
 
         // GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).GetComponent<InventorySlot>().GetWeaponInfo().weaponPrefab; 
@@ -83,7 +83,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
         if(weaponInfo == null)
         // 만약 인벤토리 안에 담겨있는 무기가 존재하지 않는다면
         {
-            ActiveWeapon.Instance.WeaponNull(); // CurrentActiveWeapon를 null로 만들어줌
+            //ActiveWeapon.Instance.WeaponNull(); // CurrentActiveWeapon를 null로 만들어줌
             return;
             // 아래 라인들 실행되지 않도록 리턴해버림
         }
@@ -98,6 +98,17 @@ public class ActiveInventory : Singleton<ActiveInventory>
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
         // 인스턴스화한 weaponToSpawn프리펩의 부모를 ActiveWeapon오브젝트로 설정
 
-        ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
+        //ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
+    }
+
+    public void SetActiveSlotIndex(int newIndex)
+    {
+        activeSlotIndexNum = newIndex;
+        ToggleActiveHighlight(activeSlotIndexNum); // 활성화된 슬롯 변경 및 무기 업데이트
+    }
+
+    public int GetActiveSlotIndex()
+    {
+        return activeSlotIndexNum;
     }
 }
