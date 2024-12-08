@@ -149,8 +149,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08842164, y: 0}
-  m_Size: {x: 0.92918813, y: 1.78125}
+  m_Offset: {x: 0.07565808, y: -0.074878454}
+  m_Size: {x: 0.60982084, y: 1.6314931}
   m_Direction: 0
 --- !u!50 &6419341609968248432
 Rigidbody2D:
@@ -203,7 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d57d3f83f894347b21ce31ec206d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 10
   traceRange: 5
   attackDistance: 2
   enemyType: {fileID: 8886622304215328595}
