@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,14 +11,17 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     public MonoBehaviour CurrentLeftActiveWeapon{ get; private set; }
     public MonoBehaviour CurrentRightActiveWeapon{ get; private set; }
+    
+    private IWeapon enhanceAttackKind;
+
     // 활성화시킬 무기스크립트를 입력받는다
     private RuneInventory runeInventory;
     private PlayerControls playerControls;
 
-    private float leftTimeToCast, rightTimeToCast; //공격 캐스팅 시간 변수
-    private float leftCastingTimer, rightCastingTimer = 0f;
+    private float leftTimeToCast, rightTimeToCast, enhanceTimeToCast; //공격 캐스팅 시간 변수
+    private float leftCastingTimer, rightCastingTimer, enhanceCastingTimer = 0f;
     
-    private bool leftAttackButtonDown, rightAttackButtonDown, isLeftCasting, isRightCasting, leftCastingComplete, rightCastingComplete = false;
+    private bool leftAttackButtonDown, rightAttackButtonDown, isLeftCasting, isRightCasting, isEnhanceCasting, leftCastingComplete, rightCastingComplete, enhanceCastingComplete = false;
 
     private int leftClick = 1;
     private int rightClick = 3;
@@ -25,6 +29,17 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     [SerializeField] Image leftCastingCircle;
     [SerializeField] Image rightCastingCircle;
+    [SerializeField] Image enhanceCastingCircle;
+
+    [SerializeField] WeaponInfo enhanceFireAttack;
+    [SerializeField] WeaponInfo enhanceIceAttack;
+    [SerializeField] WeaponInfo enhanceGrassAttack;
+    [SerializeField] WeaponInfo enhanceLightningAttack;
+
+    MonoBehaviour enhancedFireAttack;
+    MonoBehaviour enhancedIceAttack;
+    MonoBehaviour enhancedGrassAttack;
+    MonoBehaviour enhancedLightningAttack;
 
 
     protected override void Awake() 
@@ -45,6 +60,12 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void Start()
     {
+        leftCastingCircle.gameObject.SetActive(false);
+        rightCastingCircle.gameObject.SetActive(false);
+        enhanceCastingCircle.gameObject.SetActive(false);
+
+        ActivateEnhanceWeapon();
+
         // 마우스 왼쪽 클릭 시 시작이 수행됨
         // =>: 람다식, 연산자 왼쪽이 파라미터, 연산자 오른쪽이 실행문장
         // 즉, _(전달값 X)를 파라미터로하여 연산자 뒤 함수를 실행한 값을 덧붙여준다.
@@ -66,6 +87,38 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
         //AttackCoolDown();
         //시작하자마자 공격버튼 못누르게 쿨타임 줌
+    }
+
+    private void ActivateEnhanceWeapon()
+    {
+        ActivateEnhancedWeapon(enhanceFireAttack);
+        ActivateEnhancedWeapon(enhanceIceAttack);
+        ActivateEnhancedWeapon(enhanceLightningAttack);
+        ActivateEnhancedWeapon(enhanceGrassAttack);
+    }
+
+    private void ActivateEnhancedWeapon(WeaponInfo weapon)
+    {
+        GameObject weaponToSpawn = weapon.weaponPrefab;
+        GameObject newWeapon = Instantiate(weaponToSpawn, transform.position, Quaternion.identity);
+        newWeapon.transform.parent = this.transform;
+
+        if(weapon == enhanceFireAttack)
+        {
+            enhancedFireAttack = newWeapon.GetComponent<MonoBehaviour>();
+        }
+        else if(weapon == enhanceIceAttack)
+        {
+            enhancedIceAttack = newWeapon.GetComponent<MonoBehaviour>();
+        }
+        else if(weapon == enhanceLightningAttack)
+        {
+            enhancedLightningAttack = newWeapon.GetComponent<MonoBehaviour>();
+        }
+        else if(weapon == enhanceGrassAttack)
+        {
+            enhancedGrassAttack = newWeapon.GetComponent<MonoBehaviour>();
+        }
     }
 
     public void ActivateWeaponBySlot(int slotIndex)
@@ -107,14 +160,21 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     public int[] GetCastingSlotIndices()
     {
         List<int> castingIndices = new List<int>();
-
-        if(isLeftCasting)
+        if(isEnhanceCasting)
         {
             castingIndices.Add(leftClick);
-        }
-        if(isRightCasting)
-        {
             castingIndices.Add(rightClick);
+        }
+        else
+        {
+            if(isLeftCasting)
+            {
+                castingIndices.Add(leftClick);
+            }
+            if(isRightCasting)
+            {
+                castingIndices.Add(rightClick);
+            }
         }
 
         return castingIndices.ToArray();
@@ -134,39 +194,160 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         isLeftCasting = false;
     }
 
+    private void SetEnhanceAttack(IWeapon attackKind)
+    {
+        isEnhanceCasting = true;
+        //강화공격 캐스팅 중
+
+        enhanceAttackKind = attackKind;
+        enhanceTimeToCast = enhanceAttackKind.GetWeaponInfo().weaponCastingTime;
+        //강화공격에 필요한 캐스팅 시간 저장
+
+        if(enhanceCastingCircle != null)
+        {
+            enhanceCastingCircle.fillAmount = 0f;
+            enhanceCastingCircle.gameObject.SetActive(true);
+        } //강화공격 타이머 활성화
+    }
+
     private void StartCasting(int slotIndex)
     {
         if(slotIndex == leftClick)
         {
             leftAttackButtonDown = true;
-            isLeftCasting = true;
-            leftCastingComplete = false;
-            leftCastingTimer = 0f;
+            //좌클릭 누름
 
-            if(leftCastingCircle != null)
+            if(isRightCasting && (CurrentLeftActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon == (CurrentRightActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon)
+            //우클릭에 이미 캐스팅 중이고, 좌클릭과 우클릭 룬이 똑같을 때
             {
-                leftCastingCircle.fillAmount = 0f;
-                leftCastingCircle.gameObject.SetActive(true);
+                isRightCasting = false;
+                //우클릭 캐스팅 취소
+                rightCastingComplete = false;
+                //우클릭 캐스팅 완료되어 있어도 취소
+                rightCastingTimer = 0f;
+                enhanceCastingTimer = 0f;
+                //타이머 초기화
+
+                if(rightCastingCircle != null)
+                {
+                    rightCastingCircle.fillAmount = 0f;
+                    rightCastingCircle.gameObject.SetActive(false);
+                } //우클릭 타이머 비활성화
+
+                var Icon = (CurrentRightActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon;
+                if(Icon.name == "Loon_ice")
+                {
+                    SetEnhanceAttack(enhancedIceAttack as IWeapon);
+                }
+                else if(Icon.name == "Loon_fire")
+                {
+                    SetEnhanceAttack(enhancedFireAttack as IWeapon);
+                }
+                else if(Icon.name == "Loon_thunder")
+                {
+                    SetEnhanceAttack(enhancedLightningAttack as IWeapon);
+                }
+                else if(Icon.name == "Loon_tree")
+                {
+                    SetEnhanceAttack(enhancedGrassAttack as IWeapon);
+                }
+            }
+            else
+            //일반적인 경우(강화공격 x)
+            {
+                isLeftCasting = true;
+                //좌클릭 캐스팅 중
+                leftCastingComplete = false;
+                //좌클릭 캐스팅 완료 초기화(처음부터)
+                leftCastingTimer = 0f;
+                //캐스팅 타이머 초기화
+
+                if(leftCastingCircle != null)
+                {
+                    leftCastingCircle.fillAmount = 0f;
+                    leftCastingCircle.gameObject.SetActive(true);
+                } //좌클릭 타이머 활성화
             }
         }
         else if(slotIndex == rightClick)
         {
             rightAttackButtonDown = true;
-            isRightCasting = true;
-            rightCastingComplete = false;
-            rightCastingTimer = 0f;
+            //우클릭 누름
 
-            if(rightCastingCircle != null)
+            if(isLeftCasting && (CurrentRightActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon == (CurrentLeftActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon)
+            //좌클릭에 이미 캐스팅 중이고, 좌클릭과 우클릭 룬이 똑같을 때
             {
-                rightCastingCircle.fillAmount = 0f;
-                rightCastingCircle.gameObject.SetActive(true);
+                isLeftCasting = false;
+                //좌클릭 캐스팅 취소
+                leftCastingComplete = false;
+                //좌클릭 캐스팅 완료되어 있어도 취소
+                leftCastingTimer = 0f;
+                enhanceCastingTimer = 0f;
+                //타이머 초기화
+
+                if(leftCastingCircle != null)
+                {
+                    leftCastingCircle.fillAmount = 0f;
+                    leftCastingCircle.gameObject.SetActive(false);
+                } //좌클릭 타이머 비활성화
+                
+                var Icon = (CurrentRightActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon;
+                if(Icon.name == "Loon_ice")
+                {
+                    SetEnhanceAttack(enhancedIceAttack as IWeapon);
+                }
+                else if(Icon.name == "Loon_fire")
+                {
+                    SetEnhanceAttack(enhancedFireAttack as IWeapon);
+                }
+                else if(Icon.name == "Loon_thunder")
+                {
+                    SetEnhanceAttack(enhancedLightningAttack as IWeapon);
+                }
+                else if(Icon.name == "Loon_tree")
+                {
+                    SetEnhanceAttack(enhancedGrassAttack as IWeapon);
+                }
+            }
+            else
+            //일반적인 경우(강화공격 x)
+            {
+                isRightCasting = true;
+                //우클릭 캐스팅 중
+                rightCastingComplete = false;
+                //우클릭 캐스팅 완료 초기화(처음부터)
+                rightCastingTimer = 0f;
+                //캐스팅 타이머 초기화
+
+                if(rightCastingCircle != null)
+                {
+                    rightCastingCircle.fillAmount = 0f;
+                    rightCastingCircle.gameObject.SetActive(true);
+                } //우클릭 타이머 활성화
             }
         }
     }
 
     private void StartAttack(int slotIndex)
     {
-        if(slotIndex == leftClick)
+        if(isEnhanceCasting)
+        //강화공격 시전 중이면
+        {
+            isEnhanceCasting = false;
+            //클릭 땠으니 시전중 x
+
+
+            if(enhanceCastingTimer >= enhanceTimeToCast)        //캐스팅 시간보다 오래 눌렀으면
+            {
+                enhanceCastingComplete = true;                  //캐스팅 완료
+            }
+
+            if(enhanceCastingCircle != null)
+            {
+                enhanceCastingCircle.gameObject.SetActive(false);       //타이머 비활성화
+            }
+        }
+        else if(slotIndex == leftClick)
         {
             isLeftCasting = false;
             //클릭 땠으니 시전중 x
@@ -198,70 +379,98 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         }
     }
 
-    private void UpdateUI()
+    private void UpdateTimer()
+    //타이머 업데이트
     {
-        if (isLeftCasting && !leftCastingComplete)      //누르는 중일때
+        if(isEnhanceCasting && !enhanceCastingComplete)     //강화공격 중일때
         {
-            float weaponCastingTime = (CurrentLeftActiveWeapon as IWeapon).GetWeaponInfo().weaponCastingTime;
-            leftCastingTimer += Time.deltaTime;
+            float weaponCastingTime = enhanceAttackKind.GetWeaponInfo().weaponCastingTime;
+            enhanceCastingTimer += Time.deltaTime;
 
-            if(leftCastingCircle != null)
+            if(enhanceCastingCircle != null)
             {
-                leftCastingCircle.fillAmount = Mathf.Clamp01(leftCastingTimer / weaponCastingTime);
-                //안에 있는 값이 0보다 작으면 0, 1보다 크면 1, 그 사이면 그대로 리턴
+                enhanceCastingCircle.fillAmount = Mathf.Clamp01(enhanceCastingTimer / weaponCastingTime);
             }
         }
-        if (isRightCasting && !rightCastingComplete)      //누르는 중일때
+        else
         {
-            float weaponCastingTime = (CurrentRightActiveWeapon as IWeapon).GetWeaponInfo().weaponCastingTime;
-            rightCastingTimer += Time.deltaTime;
-
-            if(rightCastingCircle != null)
+            if(isLeftCasting && !leftCastingComplete)      //좌클릭 누르는 중일때
             {
-                rightCastingCircle.fillAmount = Mathf.Clamp01(rightCastingTimer / weaponCastingTime);
-                //안에 있는 값이 0보다 작으면 0, 1보다 크면 1, 그 사이면 그대로 리턴
+                float weaponCastingTime = (CurrentLeftActiveWeapon as IWeapon).GetWeaponInfo().weaponCastingTime;
+                leftCastingTimer += Time.deltaTime;
+
+                if(leftCastingCircle != null)
+                {
+                    leftCastingCircle.fillAmount = Mathf.Clamp01(leftCastingTimer / weaponCastingTime);
+                    //안에 있는 값이 0보다 작으면 0, 1보다 크면 1, 그 사이면 그대로 리턴
+                }
+            }
+            if(isRightCasting && !rightCastingComplete)      //누르는 중일때
+            {
+                float weaponCastingTime = (CurrentRightActiveWeapon as IWeapon).GetWeaponInfo().weaponCastingTime;
+                rightCastingTimer += Time.deltaTime;
+
+                if(rightCastingCircle != null)
+                {
+                    rightCastingCircle.fillAmount = Mathf.Clamp01(rightCastingTimer / weaponCastingTime);
+                    //안에 있는 값이 0보다 작으면 0, 1보다 크면 1, 그 사이면 그대로 리턴
+                }
             }
         }
     }
 
     private void Update()
     {
-        UpdateUI();
+        UpdateTimer();
         Attack();
     }
 
     private void Attack()
     {
-        if(leftAttackButtonDown && !isLeftCasting && CurrentLeftActiveWeapon)
-        // 쿨다운상태거나 지금 무기를 들고있지 않으면 실행안됨                                  => 시전 중이거나 무기를 들고있지 않으면으로 변경하면 될듯
+        if(!isEnhanceCasting && enhanceCastingComplete)
         {
-            //AttackCoolDown();
+            leftAttackButtonDown = false;
+            rightAttackButtonDown = false;
+            enhanceCastingComplete = false;
 
-            if(leftCastingComplete)
+            enhanceAttackKind.Attack();
+
+            runeInventory.MoveRuneBack(leftClick);
+            runeInventory.MoveRuneBack(rightClick);
+        }   
+        else
+        {
+            if(leftAttackButtonDown && !isLeftCasting && CurrentLeftActiveWeapon)
+            // 쿨다운상태거나 지금 무기를 들고있지 않으면 실행안됨                                  => 시전 중이거나 무기를 들고있지 않으면으로 변경하면 될듯
             {
-                leftAttackButtonDown = false;
-                leftCastingComplete = false;
-                (CurrentLeftActiveWeapon as IWeapon).Attack();
-                // as: 형변환, currentActiveWeapon스크립트가 IWeapon인터페이스에 있는
-                // 함수를 구현하였다면 currentActiveWeapon스크립트의 Attack()메서드를 실행시킨다.
+                //AttackCoolDown();
 
-                runeInventory.MoveRuneBack(leftClick);
+                if(leftCastingComplete)
+                {
+                    leftAttackButtonDown = false;
+                    leftCastingComplete = false;
+                    (CurrentLeftActiveWeapon as IWeapon).Attack();
+                    // as: 형변환, currentActiveWeapon스크립트가 IWeapon인터페이스에 있는
+                    // 함수를 구현하였다면 currentActiveWeapon스크립트의 Attack()메서드를 실행시킨다.
+
+                    runeInventory.MoveRuneBack(leftClick);
+                }
             }
-        }
-        if(rightAttackButtonDown && !isRightCasting && CurrentRightActiveWeapon)
-        // 쿨다운상태거나 지금 무기를 들고있지 않으면 실행안됨                                  => 시전 중이거나 무기를 들고있지 않으면으로 변경하면 될듯
-        {
-            //AttackCoolDown();
-
-            if(rightCastingComplete)
+            if(rightAttackButtonDown && !isRightCasting && CurrentRightActiveWeapon)
+            // 쿨다운상태거나 지금 무기를 들고있지 않으면 실행안됨                                  => 시전 중이거나 무기를 들고있지 않으면으로 변경하면 될듯
             {
-                rightAttackButtonDown = false;
-                rightCastingComplete = false;
-                (CurrentRightActiveWeapon as IWeapon).Attack();
-                // as: 형변환, currentActiveWeapon스크립트가 IWeapon인터페이스에 있는
-                // 함수를 구현하였다면 currentActiveWeapon스크립트의 Attack()메서드를 실행시킨다.
-                
-                runeInventory.MoveRuneBack(rightClick);
+                //AttackCoolDown();
+
+                if(rightCastingComplete)
+                {
+                    rightAttackButtonDown = false;
+                    rightCastingComplete = false;
+                    (CurrentRightActiveWeapon as IWeapon).Attack();
+                    // as: 형변환, currentActiveWeapon스크립트가 IWeapon인터페이스에 있는
+                    // 함수를 구현하였다면 currentActiveWeapon스크립트의 Attack()메서드를 실행시킨다.
+                    
+                    runeInventory.MoveRuneBack(rightClick);
+                }
             }
         }
     }

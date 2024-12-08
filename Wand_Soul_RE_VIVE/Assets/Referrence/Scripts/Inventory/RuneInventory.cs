@@ -59,7 +59,6 @@ public class RuneInventory : MonoBehaviour
 
             for(int i = 0; i < nonCastingSlots.Count - 1; i++)
             {
-                Debug.Log(nonCastingSlots[i]);
                 int currentSlot = nonCastingSlots[i];
                 int nextSlot = nonCastingSlots[i + 1];
 
