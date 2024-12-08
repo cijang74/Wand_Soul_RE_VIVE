@@ -63,6 +63,13 @@ public class EnemyAI : MonoBehaviour
 
     private void Tracing()
     {
+        // 플레이어가 적보다 아래에 있고 아직 발견되지 않은 경우 행동 중지
+        if (playerTransform.position.y < transform.position.y && state != State.Stoping)
+        {
+            state = State.Stoping; // 정지 상태로 전환
+            return;
+        }
+
         // 추적 상태: 플레이어를 향해 이동
         (enemyType as IEnemy)?.Trace();
 
