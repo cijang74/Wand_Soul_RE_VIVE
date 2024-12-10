@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     private State state; // 몬스터 상태
     private EnemyPathfinding enemyPathfinding; // 경로 탐색 관련 컴포넌트
+    private Shooter shooter;
 
     private enum State 
     {
@@ -29,6 +30,7 @@ public class EnemyAI : MonoBehaviour
         enemyPathfinding = GetComponent<EnemyPathfinding>(); // EnemyPathfinding 컴포넌트 가져오기
         state = State.Stoping; // 초기 상태 설정
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // 플레이어 Transform 설정
+        shooter = GetComponent<Shooter>();
     }
 
     private void Update()
@@ -63,11 +65,14 @@ public class EnemyAI : MonoBehaviour
 
     private void Tracing()
     {
-        // 플레이어가 적보다 아래에 있고 아직 발견되지 않은 경우 행동 중지
-        if (playerTransform.position.y < transform.position.y && state != State.Stoping)
+        if(shooter == null)
         {
-            state = State.Stoping; // 정지 상태로 전환
-            return;
+            // 플레이어가 적보다 아래에 있고 아직 발견되지 않은 경우 행동 중지
+            if (playerTransform.position.y < transform.position.y && state != State.Stoping)
+            {
+                state = State.Stoping; // 정지 상태로 전환
+                return;
+            }
         }
 
         // 추적 상태: 플레이어를 향해 이동

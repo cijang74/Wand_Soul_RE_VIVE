@@ -13,7 +13,7 @@ public class Shooter : MonoBehaviour, IEnemy
     [Tooltip("한번 발사될때 얼만큼 발사")]
     [SerializeField] private int projectilesPerBurst; // 한번 발사될때 얼만큼 발사
     [Tooltip("발사 각도")]
-    [SerializeField][Range(0, 359)] private float angleSpread; // 발사 각도
+    [SerializeField][Range(0, 360)] private float angleSpread; // 발사 각도
     [Tooltip("탄막 사이의 거리")]
     [SerializeField] private float startDistance = 0.1f; // 탄막 사이의 거리
     [Tooltip("발사 쿨타임")]
@@ -26,6 +26,7 @@ public class Shooter : MonoBehaviour, IEnemy
     [SerializeField] private bool oscillate;
 
     private bool isShooting = false;
+    private Animator animator; // 애니메이션 제어를 위한 Animator 컴포넌트
 
     private void OnValidate() 
     // SerializeField값중 하나가 변경될 때 마다 유효성 검사
@@ -41,8 +42,16 @@ public class Shooter : MonoBehaviour, IEnemy
         if(bulletMoveSpeed <= 0) { bulletMoveSpeed = 0.1f; }
     }
 
+    private void Awake() 
+    {
+        animator = GetComponent<Animator>();
+    }
+
     public void Attack()
     {
+        Debug.Log("Attack");
+        animator.SetTrigger("isAttack");
+
         if(!isShooting)
         {
             StartCoroutine(ShootRoutine());
@@ -162,11 +171,12 @@ public class Shooter : MonoBehaviour, IEnemy
 
     public void Trace()
     {
-        
+        Debug.Log("Trace");
     }
 
     public void Stop()
     {
-        
+        Debug.Log("Stop");
+        animator.ResetTrigger("isAttack");
     }
 }
