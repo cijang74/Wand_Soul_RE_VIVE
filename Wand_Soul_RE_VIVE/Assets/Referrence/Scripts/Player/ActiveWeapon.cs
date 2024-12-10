@@ -227,6 +227,9 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 rightCastingTimer = 0f;
                 enhanceCastingTimer = 0f;
                 //타이머 초기화
+                
+                Destroy(CurrentLeftActiveWeapon.gameObject);      //좌클릭 스태프 삭제
+                CurrentLeftActiveWeapon = null;
 
                 if(rightCastingCircle != null)
                 {
@@ -284,6 +287,9 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 leftCastingTimer = 0f;
                 enhanceCastingTimer = 0f;
                 //타이머 초기화
+                
+                Destroy(CurrentLeftActiveWeapon.gameObject);      //우클릭 스태프 삭제
+                CurrentLeftActiveWeapon = null;               
 
                 if(leftCastingCircle != null)
                 {
@@ -356,6 +362,11 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
             {
                 leftCastingComplete = true;                 //캐스팅 완료(시전 준비 완료)
             }
+            else
+            {
+                Destroy(CurrentLeftActiveWeapon.gameObject);
+                CurrentLeftActiveWeapon = null;
+            }
             
             if(leftCastingCircle != null)
             {
@@ -370,6 +381,11 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
             if(rightCastingTimer >= rightTimeToCast)          //캐스팅 시간보다 오래 눌렀으면
             {
                 rightCastingComplete = true;
+            }
+            else
+            {
+                Destroy(CurrentRightActiveWeapon.gameObject);
+                CurrentRightActiveWeapon = null;
             }
             
             if(rightCastingCircle != null)
@@ -454,6 +470,9 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                     // 함수를 구현하였다면 currentActiveWeapon스크립트의 Attack()메서드를 실행시킨다.
 
                     runeInventory.MoveRuneBack(leftClick);
+                    
+                    Destroy(CurrentLeftActiveWeapon.gameObject);
+                    CurrentLeftActiveWeapon = null;
                 }
             }
             if(rightAttackButtonDown && !isRightCasting && CurrentRightActiveWeapon)
@@ -470,6 +489,9 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                     // 함수를 구현하였다면 currentActiveWeapon스크립트의 Attack()메서드를 실행시킨다.
                     
                     runeInventory.MoveRuneBack(rightClick);
+                    
+                    Destroy(CurrentRightActiveWeapon.gameObject);
+                    CurrentRightActiveWeapon = null;
                 }
             }
         }
