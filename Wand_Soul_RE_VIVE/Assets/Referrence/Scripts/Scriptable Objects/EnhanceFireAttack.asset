@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39c13619ff4dea4b9cb0c9642fc4f80, type: 3}
   m_Name: EnhanceFireAttack
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 7756577028298227987, guid: 306eba924561f4c439087e30b1ae36a5, type: 3}
+  weaponPrefab: {fileID: 7756577028298227987, guid: cbc7393f57b53ce4c961e6f61cd8aefb, type: 3}
   weaponCastingTime: 5
   weaponDamage: 10
   weaponRange: 25

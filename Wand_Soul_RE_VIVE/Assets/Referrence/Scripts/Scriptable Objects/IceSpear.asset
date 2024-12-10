@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39c13619ff4dea4b9cb0c9642fc4f80, type: 3}
   m_Name: IceSpear
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 7756577028298227987, guid: 306eba924561f4c439087e30b1ae36a5, type: 3}
+  weaponPrefab: {fileID: 7756577028298227987, guid: 8ff33d22acee2c24da12b69e58c43bb9, type: 3}
   weaponCastingTime: 2
   weaponDamage: 2
-  weaponRange: 12
+  weaponRange: 25
   weaponIcon: {fileID: -236632436, guid: 96b4d70bfeac9e942a37283376dcc4c2, type: 3}
