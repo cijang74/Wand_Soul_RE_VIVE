@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4477689290559766703}
   m_Layer: 0
-  m_Name: IceMax Spawn Point
+  m_Name: IceMax Spawn Point1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +31,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6957608741170853556}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5226566895066767393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1393391312419283460}
+  m_Layer: 0
+  m_Name: IceMax Spawn Point2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1393391312419283460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5226566895066767393}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 1.92, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6957608741170853556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7472340665316456554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8688300738342501862}
+  m_Layer: 0
+  m_Name: IceMax Spawn Point3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8688300738342501862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7472340665316456554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6957608741170853556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7756577028298227987
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6957608741170853556}
   - component: {fileID: 42153885538727686}
-  - component: {fileID: 2071739080617648746}
+  - component: {fileID: 7685948335266109407}
   - component: {fileID: 4770154052206388869}
   m_Layer: 0
   m_Name: IceMaxStaff
@@ -64,6 +126,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4477689290559766703}
+  - {fileID: 1393391312419283460}
+  - {fileID: 8688300738342501862}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &42153885538727686
@@ -118,7 +182,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2071739080617648746
+--- !u!114 &7685948335266109407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,12 +191,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7756577028298227987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e905e43585faca745b2583ce168ba49a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bcf42182cb0659428c590f4f15e5cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: f7e458c28299e114bb6645162066a355, type: 2}
-  fireBallPrefab: {fileID: 2327028790762679249, guid: 5c901fde155c25545890592994483e98, type: 3}
-  fireBallSpawnPoint: {fileID: 4477689290559766703}
+  iceSpearPrefab: {fileID: 2327028790762679249, guid: 5c901fde155c25545890592994483e98, type: 3}
+  iceSpearSpawnPoint1: {fileID: 4477689290559766703}
+  iceSpearSpawnPoint2: {fileID: 1393391312419283460}
+  iceSpearSpawnPoint3: {fileID: 8688300738342501862}
 --- !u!95 &4770154052206388869
 Animator:
   serializedVersion: 5
