@@ -13,7 +13,7 @@ public class AreaExit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) // 트리거 충돌 감지
     {
-        if(other.gameObject.GetComponent<PlayerController>()) // 플레이어?
+        if(other.gameObject.GetComponent<PlayerController>() || other.tag == "Player") // 플레이어?
         {
             UIFade.Instance.FadeToBlack();
             // 화면 검은색으로 페이드아웃 시키기

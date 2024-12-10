@@ -22,7 +22,7 @@ public class AreaEnterance : MonoBehaviour
             Debug.Log("Debug");
 
             UIFade.Instance.FadeToClear();
-            // 화면 검은색으로 페이드아웃 시키기
+            // 화면 검은색으로 페이드인 시키기
 
             PlayerController.Instance.transform.position = transform.position;
             // 플레이어의 위치는 AreaEnterance가 적용된 객체의 위치와 같다.
