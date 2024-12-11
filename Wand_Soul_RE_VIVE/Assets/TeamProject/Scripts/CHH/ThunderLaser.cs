@@ -90,6 +90,6 @@ public class ThunderLaser : MonoBehaviour
 
             yield return null;
         }
-        //StartCoroutine(GetComponent<SpriteFade>().SlowFadeRoutine());
+        StartCoroutine(GetComponent<SpriteFade>().SlowFadeRoutine());
     }
 }

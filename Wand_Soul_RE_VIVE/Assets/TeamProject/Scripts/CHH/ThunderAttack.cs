@@ -6,7 +6,9 @@ public class ThunderAttack : MonoBehaviour, IWeapon
 {
     [SerializeField] private WeaponInfo weaponInfo;
     [SerializeField] private GameObject Thunder;
-    private Vector3 ThunderSpawnPoint;
+    private Vector3 ThunderSpawnPoint1;
+    private Vector3 ThunderSpawnPoint2;
+    private Vector3 ThunderSpawnPoint3;
 
     private Animator myAnimator;
     readonly int Attack_HASH = Animator.StringToHash("Attack");
@@ -30,9 +32,17 @@ public class ThunderAttack : MonoBehaviour, IWeapon
     {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        ThunderSpawnPoint.x = mousePosition.x;
-        ThunderSpawnPoint.y = mousePosition.y + 20f;
-        ThunderSpawnPoint.z = 0f;
+        ThunderSpawnPoint1.x = mousePosition.x;
+        ThunderSpawnPoint1.y = mousePosition.y + 20f;
+        ThunderSpawnPoint1.z = 0f;
+
+        ThunderSpawnPoint2.x = mousePosition.x - 2f;
+        ThunderSpawnPoint2.y = mousePosition.y + 20f;
+        ThunderSpawnPoint2.z = 0f;
+        
+        ThunderSpawnPoint3.x = mousePosition.x + 2f;
+        ThunderSpawnPoint3.y = mousePosition.y + 20f;
+        ThunderSpawnPoint3.z = 0f;
     }
 
     public void SpawnStaffProjectileAnimEvent()
@@ -41,9 +51,15 @@ public class ThunderAttack : MonoBehaviour, IWeapon
 
         SetSpawnPoint();
 
-        GameObject newLazer = Instantiate(Thunder, ThunderSpawnPoint, Quaternion.identity);
+        GameObject newLazer1 = Instantiate(Thunder, ThunderSpawnPoint1, Quaternion.identity);
         // 레이저의 인스턴스화
-        newLazer.GetComponent<ThunderLaser>().UpdateLaserRange(weaponInfo.weaponRange);
+        newLazer1.GetComponent<ThunderLaser>().UpdateLaserRange(weaponInfo.weaponRange);
+
+        GameObject newLazer2 = Instantiate(Thunder, ThunderSpawnPoint2, Quaternion.identity);
+        newLazer2.GetComponent<ThunderLaser>().UpdateLaserRange(weaponInfo.weaponRange);
+
+        GameObject newLazer3 = Instantiate(Thunder, ThunderSpawnPoint3, Quaternion.identity);
+        newLazer3.GetComponent<ThunderLaser>().UpdateLaserRange(weaponInfo.weaponRange);
     }
 
     private void MouseFollowWithOffset() // 마우스 포인터 위치에 따라 무기 방향 전환
