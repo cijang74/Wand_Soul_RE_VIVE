@@ -203,6 +203,7 @@ MonoBehaviour:
   spawnHeight: 10
   dangerZoneDuration: 0.5
   bulletSpawnerPrefab: {fileID: 3694712828864043101, guid: 01c99aac7c2ffab46a20093fc7b2f592, type: 3}
+  bossPrefab: {fileID: 5401595541922305976}
 --- !u!114 &3125520179055501347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460e203716a90b24cae74c92e6717369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 10
   deathVFXPrefab: {fileID: 4325406826078990300, guid: 11a30decb6d8f0d44a68a4a73e6ab1b2, type: 3}
   knockbackThrust: 15
 --- !u!70 &7630826463866690779

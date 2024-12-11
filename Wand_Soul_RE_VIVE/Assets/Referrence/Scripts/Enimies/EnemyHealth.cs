@@ -55,11 +55,6 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity); // 해당 위치로 인스턴스화
             GetComponent<PickUpSpawner>().DropItems();
             Destroy(gameObject);
-            
-            if(boss != null) // 보스라면 포탈 개방시켜주기.
-            {
-                FindObjectOfType<BossExit>().ActiveExit();
-            }
         }
 
     }

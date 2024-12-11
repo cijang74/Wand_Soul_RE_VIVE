@@ -805,6 +805,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5692753245167578819, guid: 9acac6526cff2744cbb6d41b98a602bc, type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6213854731779069643, guid: 9acac6526cff2744cbb6d41b98a602bc, type: 3}
       propertyPath: leftCastingCircle
       value: 
@@ -1860,14 +1864,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3125520179055501347, guid: 50f1f2c8e7e781147860182c9119f81b, type: 3}
-      propertyPath: startingHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5205807302943607745, guid: 50f1f2c8e7e781147860182c9119f81b, type: 3}
-      propertyPath: bossPrefab
-      value: 
-      objectReference: {fileID: 5401595541922305976, guid: 50f1f2c8e7e781147860182c9119f81b, type: 3}
     - target: {fileID: 5401595541922305976, guid: 50f1f2c8e7e781147860182c9119f81b, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -2087,28 +2083,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7890406978210671049, guid: d6745e360fe0efb4195faf94f66eb536, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1917492276}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6745e360fe0efb4195faf94f66eb536, type: 3}
---- !u!1 &1917492275 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7890406978210671049, guid: d6745e360fe0efb4195faf94f66eb536, type: 3}
-  m_PrefabInstance: {fileID: 1917492274}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1917492276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917492275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e53d534aa0f95b4d94ae7e952ca6d94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1926730522
 GameObject:
   m_ObjectHideFlags: 0
