@@ -55,12 +55,13 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity); // 해당 위치로 인스턴스화
             GetComponent<PickUpSpawner>().DropItems();
             Destroy(gameObject);
+            
+            if(boss != null) // 보스라면 포탈 개방시켜주기.
+            {
+                FindObjectOfType<BossExit>().ActiveExit();
+            }
         }
 
-        if(boss != null) // 보스라면 포탈 개방시켜주기.
-        {
-            FindObjectOfType<BossExit>().ActiveExit();
-        }
     }
 
     public int GetCurrentHealth()
@@ -81,12 +82,15 @@ public class EnemyHealth : MonoBehaviour
     private void UpdateHealthSlider()
     // 체력 UI 연결하여 업데이트
     {
-        if(heathSlider == null && boss != null)
+        if(boss != null)
         {
-            heathSlider = GameObject.Find(BOSS_HEALTH_SLIDER_TEXT).GetComponent<Slider>();
-        }
+            if(heathSlider == null)
+            {
+                heathSlider = GameObject.Find(BOSS_HEALTH_SLIDER_TEXT).GetComponent<Slider>();
+            }
 
-        heathSlider.maxValue = startingHealth;
-        heathSlider.value = currentHealth;
+            heathSlider.maxValue = startingHealth;
+            heathSlider.value = currentHealth;
+        }
     }
 }

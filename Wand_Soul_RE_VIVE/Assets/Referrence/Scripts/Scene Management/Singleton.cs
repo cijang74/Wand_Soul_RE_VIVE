@@ -17,6 +17,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         // 만약 인스턴스와 게임오브젝트가 null이 아니라면 -> 이미 같은 인스턴스가 존재한다는 뜻.
         {
             // 중복되지 않게 해당 인스턴스 삭제
+            Debug.Log(this.gameObject);
             Destroy(this.gameObject);
         }
 

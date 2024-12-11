@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a640cbcd94ede26458943a42027b324f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 0
 --- !u!1 &5896563191927402875
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +469,7 @@ MonoBehaviour:
   myTrailRenderer: {fileID: 3826460079345128080}
   weaponCollider: {fileID: 3918721086750267391}
   jumpSpeed: 10
+  isFreeze: 0
 --- !u!210 &6655222152109191374
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -546,8 +548,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5854314680348002548}
-  - component: {fileID: 3607930822337991091}
   - component: {fileID: 4294412750969833163}
+  - component: {fileID: 6213854731779069643}
   m_Layer: 0
   m_Name: Active Weapon
   m_TagString: Untagged
@@ -571,18 +573,6 @@ Transform:
   - {fileID: 3427555297097684230}
   m_Father: {fileID: 4521800871256212344}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3607930822337991091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7916842030470304239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b52683c4d06b7c409c11cc724941f6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4294412750969833163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,3 +585,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ab9b440123e4c4c8d129221a76b12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6213854731779069643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916842030470304239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b52683c4d06b7c409c11cc724941f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftCastingCircle: {fileID: 0}
+  rightCastingCircle: {fileID: 0}
+  enhanceCastingCircle: {fileID: 0}
+  enhanceFireAttack: {fileID: 11400000, guid: 42ec731685ec9e34693791b90296fd7d, type: 2}
+  enhanceIceAttack: {fileID: 11400000, guid: f7e458c28299e114bb6645162066a355, type: 2}
+  enhanceGrassAttack: {fileID: 11400000, guid: 226a418fa3f67aa42a1673170a7b5f3b, type: 2}
+  enhanceLightningAttack: {fileID: 11400000, guid: 23f53700e48906c42a9e6e7a87ebbf7e, type: 2}
