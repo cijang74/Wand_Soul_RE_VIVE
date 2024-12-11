@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpriteFade : MonoBehaviour
 {
     [SerializeField] private float fadeTime = .4f; // 레이저 잔상 시간
-
+    
     private SpriteRenderer spriteRenderer;
 
     private void Awake() 

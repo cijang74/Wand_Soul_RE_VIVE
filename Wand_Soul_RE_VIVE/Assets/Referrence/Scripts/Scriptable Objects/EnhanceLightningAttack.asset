@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39c13619ff4dea4b9cb0c9642fc4f80, type: 3}
   m_Name: EnhanceLightningAttack
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 1193639063487109057, guid: 31cd4d952c11525488eac21f901eda63, type: 3}
-  weaponCastingTime: 0
-  weaponDamage: 0
-  weaponRange: 0
+  weaponPrefab: {fileID: 1193639063487109057, guid: 2e015810c3cb5984c98c79e476ec3846, type: 3}
+  weaponCastingTime: 3
+  weaponDamage: 5
+  weaponRange: 100
   weaponIcon: {fileID: -2129312161, guid: 96b4d70bfeac9e942a37283376dcc4c2, type: 3}
