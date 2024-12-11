@@ -130,7 +130,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
-        SceneManager.LoadScene(Town_TEXT); // 죽으면 마을에서 부활
+        SceneManager.LoadScene("Stage1"); // 죽으면 마을에서 부활
         Stamina.Instance.RefreshStaminaOnDeath();
     }
 
