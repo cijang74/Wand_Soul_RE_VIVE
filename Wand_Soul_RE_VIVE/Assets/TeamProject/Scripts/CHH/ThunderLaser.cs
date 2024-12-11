@@ -3,30 +3,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ThunderLaser : MonoBehaviour, IWeapon
+public class ThunderLaser : MonoBehaviour
 {
     // 레이저의 스프라이트와 콜라이더를 늘려주는 스크립트
     
     [SerializeField] private float laserGrowTime = 0.22f; // 레이저 발사시간
 
     [SerializeField] private GameObject ThunderLasePrefab; // 전기 강화공격 프리펩
-    [SerializeField] private WeaponInfo weaponInfo;
 
     private bool isGrowing = true; // 지형 오브젝트에 닿으면 레이저 확장을 못하게 하는 변수
     private float laserRange; // 레이저 범위
-    private Vector3 mousePosition;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D capsuleCollider2D;
 
-    public void Attack()
-    {
-        Instantiate(ThunderLasePrefab, mousePosition, Quaternion.identity);
-    }
-
-    public WeaponInfo GetWeaponInfo()
-    {
-        return weaponInfo;
-    }
 
     private void Awake() 
     {
