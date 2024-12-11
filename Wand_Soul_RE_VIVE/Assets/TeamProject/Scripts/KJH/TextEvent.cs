@@ -5,11 +5,34 @@ using DialogueSystemWithText;
 
 public class TextEvent : MonoBehaviour
 {
-    [SerializeField] private DialogueUIController dialogueUIController;
+    [SerializeField] private DialogueUIController DefaultDialogueController;
+    [SerializeField] private DialogueUIController ShopdialogueController;
+    [SerializeField] private DialogueUIController NoCoinDialogueController;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ShowStartText()
     {
-        dialogueUIController.ShowDialogueUI();
+        DefaultDialogueController.ShowDialogueUI();
+    }
+
+    public void NoCoinText()
+    {
+        ShopdialogueController.HideDialogueUI();
+        NoCoinDialogueController.ShowDialogueUI();
+    }
+
+    public void ShowShopText()
+    {
+        NoCoinDialogueController.HideDialogueUI();
+        ShopdialogueController.ShowDialogueUI();
+    }
+
+    public void FreezePlayer()
+    {
+        PlayerController.Instance.isFreeze = true;
+    }
+
+    public void UnFreezePlayer()
+    {
+        PlayerController.Instance.isFreeze = false;
     }
 }

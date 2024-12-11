@@ -25,6 +25,7 @@ public class PlayerController : Singleton<PlayerController>
     private bool isJump = false;
     private bool jumpStarted = false; // New flag to control jump animation trigger
     private bool canDoubleJump;
+    public bool isFreeze = false;
 
     private bool facingLeft = false;
     public bool FacingLeft { get {return facingLeft; } }
@@ -95,6 +96,10 @@ public class PlayerController : Singleton<PlayerController>
 
     private void PlayerInput() // 애니컨트롤러에서 사용할 플레이어의 위치값 불러오기
     {
+        if(isFreeze)
+        {
+            return;
+        }
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
 
         // PlayerControls InputActions에서 설정되어있는 Movemet액션맵의 Move액션의 변수값을 읽어온다.

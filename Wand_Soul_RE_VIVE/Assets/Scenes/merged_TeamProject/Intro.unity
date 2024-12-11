@@ -1604,8 +1604,8 @@ GameObject:
   - component: {fileID: 1222730107}
   - component: {fileID: 1222730106}
   - component: {fileID: 1222730105}
-  - component: {fileID: 1222730108}
   - component: {fileID: 1222730109}
+  - component: {fileID: 1222730110}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1663,19 +1663,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1222730108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222730104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f78938aca9dc34c81157d543a3a93c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueUIController: {fileID: 978398595}
 --- !u!114 &1222730109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,6 +1677,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeScreen: {fileID: 160401159}
   fadeSpeed: 0.7
+--- !u!114 &1222730110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222730104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0373f67d594db142b5a5edaf4f2507d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultDialogueController: {fileID: 978398595}
 --- !u!1 &1408088352
 GameObject:
   m_ObjectHideFlags: 0

@@ -191,3 +191,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a505790ad82758745a295cc2f8186037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textEvent: {fileID: 0}
+  EndVFXPrefab: {fileID: 4325406826078990300, guid: be88f8cf908773945b1568e72a241436, type: 3}
