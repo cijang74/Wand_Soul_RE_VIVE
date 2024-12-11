@@ -271,7 +271,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: -1751105583, guid: 02a53b8a71258e741b2b6ea95c89730d, type: 3}
   _characterImagePosition: 0
-  _nextDialogueContent: {fileID: 228591611}
+  _nextDialogueContent: {fileID: 168748887}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -411,7 +411,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 1192949724}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -478,7 +478,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 1628190220}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -791,7 +791,7 @@ MonoBehaviour:
   _customizeFont: 0
   _dialogueFont: {fileID: 0}
   _fontColor: {r: 0, g: 0, b: 0, a: 0}
-  _characterName: ???
+  _characterName: "\uC5EC\uC2E0"
   _customizeCharacterName: 0
   _withLineBreak: 0
   _characterNameFontColor: {r: 0, g: 0, b: 0, a: 0}
@@ -806,7 +806,19 @@ MonoBehaviour:
       m_Calls: []
   _dialogueEndEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1634249995}
+        m_TargetAssemblyTypeName: WGod, Assembly-CSharp
+        m_MethodName: DestroyHer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _dialogueOptions: []
 --- !u!1 &362803731 stripped
 GameObject:
@@ -1599,7 +1611,7 @@ MonoBehaviour:
   _customizeFont: 0
   _dialogueFont: {fileID: 0}
   _fontColor: {r: 0, g: 0, b: 0, a: 0}
-  _characterName: ???
+  _characterName: "\uC5EC\uC2E0"
   _customizeCharacterName: 0
   _withLineBreak: 0
   _characterNameFontColor: {r: 0, g: 0, b: 0, a: 0}
@@ -1608,7 +1620,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 355637096}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1817,12 +1829,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf02dac1997b2dd4c94fc9fe81132707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: "\uD604\uC81C \uC774 \uC138\uACC4\uB294 \uBAAC\uC2A4\uD130\uB4E4\uB85C
-    \uC778\uD574 \uD63C\uB780\uC2A4\uB7EC\uC6B4 \uC0C1\uD669\uC785\uB2C8\uB2E4."
+  _dialogue: "\uC800\uB294 \uC5EC\uC2E0, \uADF8\uB9AC\uACE0 \uD604\uC81C \uC774 \uC138\uACC4\uB294
+    \uBAAC\uC2A4\uD130\uB4E4\uB85C \uC778\uD574 \uD63C\uB780\uC2A4\uB7EC\uC6B4 \uC0C1\uD669\uC785\uB2C8\uB2E4."
   _customizeFont: 0
   _dialogueFont: {fileID: 0}
   _fontColor: {r: 0, g: 0, b: 0, a: 0}
-  _characterName: ???
+  _characterName: "\uC5EC\uC2E0"
   _customizeCharacterName: 0
   _withLineBreak: 0
   _characterNameFontColor: {r: 0, g: 0, b: 0, a: 0}
@@ -1831,7 +1843,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 2035165080}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2235,7 +2247,7 @@ MonoBehaviour:
   _customizeFont: 0
   _dialogueFont: {fileID: 0}
   _fontColor: {r: 0, g: 0, b: 0, a: 0}
-  _characterName: ???
+  _characterName: "\uC5EC\uC2E0"
   _customizeCharacterName: 0
   _withLineBreak: 0
   _characterNameFontColor: {r: 0, g: 0, b: 0, a: 0}
@@ -2244,7 +2256,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 1517117523}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2530,7 +2542,7 @@ MonoBehaviour:
   _customizeFont: 0
   _dialogueFont: {fileID: 0}
   _fontColor: {r: 0, g: 0, b: 0, a: 0}
-  _characterName: ???
+  _characterName: "\uC5EC\uC2E0"
   _customizeCharacterName: 0
   _withLineBreak: 0
   _characterNameFontColor: {r: 0, g: 0, b: 0, a: 0}
@@ -2539,7 +2551,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 541523598}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2707,7 +2719,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: -1751105583, guid: 02a53b8a71258e741b2b6ea95c89730d, type: 3}
   _characterImagePosition: 0
-  _nextDialogueContent: {fileID: 228591611}
+  _nextDialogueContent: {fileID: 798909574}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3146,7 +3158,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8611935980102970966, guid: 959a12acad07e23418584797365d6054, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1634249995}
   m_SourcePrefab: {fileID: 100100000, guid: 959a12acad07e23418584797365d6054, type: 3}
 --- !u!1 &1192949722
 GameObject:
@@ -3206,7 +3221,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 631821953}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3355,7 +3370,7 @@ MonoBehaviour:
   _customizeFont: 0
   _dialogueFont: {fileID: 0}
   _fontColor: {r: 0, g: 0, b: 0, a: 0}
-  _characterName: ???
+  _characterName: "\uC5EC\uC2E0"
   _customizeCharacterName: 0
   _withLineBreak: 0
   _characterNameFontColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3364,7 +3379,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 951803239}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3656,7 +3671,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: -1751105583, guid: 02a53b8a71258e741b2b6ea95c89730d, type: 3}
   _characterImagePosition: 0
-  _nextDialogueContent: {fileID: 228591611}
+  _nextDialogueContent: {fileID: 886603897}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3868,7 +3883,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 41161495}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3876,6 +3891,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _dialogueOptions: []
+--- !u!1 &1634249989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611935980102970966, guid: 959a12acad07e23418584797365d6054, type: 3}
+  m_PrefabInstance: {fileID: 1177121343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1634249995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634249989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a505790ad82758745a295cc2f8186037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1662904383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4209,7 +4241,7 @@ MonoBehaviour:
   _customizeFont: 0
   _dialogueFont: {fileID: 0}
   _fontColor: {r: 0, g: 0, b: 0, a: 0}
-  _characterName: ???
+  _characterName: "\uC5EC\uC2E0"
   _customizeCharacterName: 0
   _withLineBreak: 0
   _characterNameFontColor: {r: 0, g: 0, b: 0, a: 0}
@@ -4218,7 +4250,7 @@ MonoBehaviour:
   _characterNameFontSize: 0
   _characterImageSprite: {fileID: 799611419, guid: 50e0f7043ea1f6248a5df9965f839558, type: 3}
   _characterImagePosition: 1
-  _nextDialogueContent: {fileID: 0}
+  _nextDialogueContent: {fileID: 1217444159}
   _dialogueStartEvent:
     m_PersistentCalls:
       m_Calls: []
