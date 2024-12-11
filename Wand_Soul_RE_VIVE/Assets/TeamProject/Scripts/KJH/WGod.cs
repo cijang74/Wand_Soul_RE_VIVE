@@ -5,6 +5,8 @@ using UnityEngine;
 public class WGod : MonoBehaviour
 {
 
+    private TextEvent textEvent;
+
     public void DestroyHer()
     {
         Destroy(gameObject);

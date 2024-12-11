@@ -3,16 +3,30 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ThunderLaser : MonoBehaviour
+public class ThunderLaser : MonoBehaviour, IWeapon
 {
     // 레이저의 스프라이트와 콜라이더를 늘려주는 스크립트
     
     [SerializeField] private float laserGrowTime = 0.22f; // 레이저 발사시간
 
+    [SerializeField] private GameObject ThunderLasePrefab; // 전기 강화공격 프리펩
+    [SerializeField] private WeaponInfo weaponInfo;
+
     private bool isGrowing = true; // 지형 오브젝트에 닿으면 레이저 확장을 못하게 하는 변수
     private float laserRange; // 레이저 범위
+    private Vector3 mousePosition;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D capsuleCollider2D;
+
+    public void Attack()
+    {
+        Instantiate(ThunderLasePrefab, mousePosition, Quaternion.identity);
+    }
+
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
 
     private void Awake() 
     {
@@ -48,10 +62,6 @@ public class ThunderLaser : MonoBehaviour
         // 실제 마우스 위치를 입력받음
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         // 게임 내 화면 마우스 위치로 변환
-        Vector2 direction = transform.position - mousePosition;
-        // 내 마우스 위치 - 캐릭터의 위치 => 마우스와 캐릭터에 대한 방향벡터
-
-        transform.right = -direction;
     }
 
     private IEnumerator IncreaseLaserLengthRoutine()
