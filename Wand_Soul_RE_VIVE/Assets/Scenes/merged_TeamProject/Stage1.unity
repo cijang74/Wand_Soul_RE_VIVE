@@ -484,6 +484,14 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 492507896157864624, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: weaponInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b392159adde0ad44a2367f0efb461a3, type: 2}
+    - target: {fileID: 593627789209322474, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: weaponInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b392159adde0ad44a2367f0efb461a3, type: 2}
     - target: {fileID: 1273464170904873975, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -694,6 +702,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7046913241249747264, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378337377690172213, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378337377690172213, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7518313572163869907, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
@@ -2295,7 +2311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8611935980102970966, guid: 959a12acad07e23418584797365d6054, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
