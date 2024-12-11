@@ -31,6 +31,16 @@ public class Boss : MonoBehaviour, IEnemy
     public void Trace() { }
     public void Stop() { }
 
+    public void ActiveOffBoss()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void ActiveBoss()
+    {
+        gameObject.SetActive(true);
+    }
+
     //보스는 이동을 안해서 따로 쳐다보는 것 추가했어요.
     private void FacePlayer()
     {

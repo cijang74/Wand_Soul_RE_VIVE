@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -11,11 +12,16 @@ public class EnemyHealth : MonoBehaviour
     private int currentHealth;
     private Knockback knockback;
     private Flash flash;
+    private Boss boss;
+    private Slider heathSlider;
+
+    const string  BOSS_HEALTH_SLIDER_TEXT= "Boss Health Slider";
 
     private void Awake()
     {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
+        boss = GetComponent<Boss>();
     }
 
     private void Start()
@@ -29,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         knockback.GetKnockedBack(PlayerController.Instance.transform, knockbackThrust); // 넉벡시키기
         StartCoroutine(flash.FlashRoutine()); // Flash시키기
+        UpdateHealthSlider();
         StartCoroutine(CheckDetectorDeathRoutime()); // 죽는피인지 검사하기
     }
 
@@ -44,9 +51,15 @@ public class EnemyHealth : MonoBehaviour
         // 죽음을 검사하고 죽을때 실행되는 함수
         if(currentHealth <= 0)
         {
+            currentHealth = 0;
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity); // 해당 위치로 인스턴스화
             GetComponent<PickUpSpawner>().DropItems();
             Destroy(gameObject);
+        }
+
+        if(boss != null) // 보스라면 포탈 개방시켜주기.
+        {
+            FindObjectOfType<BossExit>().ActiveExit();
         }
     }
 
@@ -59,8 +72,21 @@ public class EnemyHealth : MonoBehaviour
     {
         return startingHealth;
     }
+
     public void InitializeHealth(int health)
     {
         currentHealth = health;
+    }
+
+    private void UpdateHealthSlider()
+    // 체력 UI 연결하여 업데이트
+    {
+        if(heathSlider == null && boss != null)
+        {
+            heathSlider = GameObject.Find(BOSS_HEALTH_SLIDER_TEXT).GetComponent<Slider>();
+        }
+
+        heathSlider.maxValue = startingHealth;
+        heathSlider.value = currentHealth;
     }
 }
