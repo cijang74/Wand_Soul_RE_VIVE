@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageSource : MonoBehaviour
 {
-    private int damageAmount;
+    [SerializeField] private int damageAmount;
 
     // private void OnTriggerEnter2D(Collider2D other) // other과 충돌하면 실행되는 메서드
     // {

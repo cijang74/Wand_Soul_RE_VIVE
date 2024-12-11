@@ -30,6 +30,14 @@ public class Stamina : Singleton<Stamina>
         staminaContainer = GameObject.Find(STAMINA_CONTAINER_TEXT).transform;
     }
 
+    public void DownRefreshTime()
+    {
+        if(timeBtweenStaminaRefresh > 1) // 1초보다 작아지면 앙대용
+        {
+            timeBtweenStaminaRefresh--;
+        }
+    }
+
     public void UseStamina()
     {
         CurrentStamina--;

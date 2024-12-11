@@ -184,6 +184,11 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
+    public void ImproveMovementSpeed()
+    {
+        moveSpeed += 2;
+    }
+
     void Update()
     {
         PlayerInput(); // 애니컨트롤러에서 사용할 플레이어의 위치값 불러오기

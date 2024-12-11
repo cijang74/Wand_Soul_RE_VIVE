@@ -62,6 +62,23 @@ public class PlayerHealth : Singleton<PlayerHealth>
         }
     }
 
+    public void AllHealPlayer()
+    {
+        while(currentHealth < maxHealth)
+        {
+            currentHealth++;
+
+            // UI 업데이트
+            UpdateHealthSlider();
+        }
+    }
+
+    public void UpMaxHP()
+    {
+        maxHealth++;
+        HealPlayer();
+    }
+
     public void TakeDamage(int damageAmount, Transform hitTransform)
     // 데미지양과 데미지를 입힌 오브젝트의 위치를 입력받음
     {
