@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4477689290559766703}
   m_Layer: 0
-  m_Name: FireBall Spawn Point
+  m_Name: Wood Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,10 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6957608741170853556}
   - component: {fileID: 42153885538727686}
-  - component: {fileID: 2071739080617648746}
+  - component: {fileID: 5071514816525050754}
   - component: {fileID: 4770154052206388869}
   m_Layer: 0
-  m_Name: FireBallStaff
+  m_Name: WoodMaxStaff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2071739080617648746
+--- !u!114 &5071514816525050754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,12 +127,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7756577028298227987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e905e43585faca745b2583ce168ba49a, type: 3}
+  m_Script: {fileID: 11500000, guid: d658e40e96a769046917c11c96f996ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: 52cc40ad7ab81f847a1d19503faad17c, type: 2}
-  fireBallPrefab: {fileID: 2327028790762679249, guid: 70661dedf22340c409765b12ae624be5, type: 3}
-  fireBallSpawnPoint: {fileID: 4477689290559766703}
+  weaponInfo: {fileID: 11400000, guid: 226a418fa3f67aa42a1673170a7b5f3b, type: 2}
+  WoodAttack: {fileID: 1918662147574442102, guid: 3b447c9466470a54dbf710e0e5234489, type: 3}
 --- !u!95 &4770154052206388869
 Animator:
   serializedVersion: 5

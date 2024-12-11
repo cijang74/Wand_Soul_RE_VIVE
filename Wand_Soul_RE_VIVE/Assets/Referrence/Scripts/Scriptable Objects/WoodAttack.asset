@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39c13619ff4dea4b9cb0c9642fc4f80, type: 3}
-  m_Name: EnhanceGrassAttack
+  m_Name: WoodAttack
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 7756577028298227987, guid: 36e77f66074cd794ebffd7d8c8630287, type: 3}
-  weaponCastingTime: 7
+  weaponPrefab: {fileID: 7756577028298227987, guid: 41334b9f9e5c14d41a31b74e32ccc927, type: 3}
+  weaponCastingTime: 3
   weaponDamage: 1
-  weaponRange: 100
+  weaponRange: 5
   weaponIcon: {fileID: 133923091, guid: 96b4d70bfeac9e942a37283376dcc4c2, type: 3}

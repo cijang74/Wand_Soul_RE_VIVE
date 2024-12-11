@@ -65,8 +65,6 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
         ActivateEnhanceWeapon();
 
-        ClearExistingWeapons();
-
         // 마우스 왼쪽 클릭 시 시작이 수행됨
         // =>: 람다식, 연산자 왼쪽이 파라미터, 연산자 오른쪽이 실행문장
         // 즉, _(전달값 X)를 파라미터로하여 연산자 뒤 함수를 실행한 값을 덧붙여준다.
@@ -88,10 +86,13 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
         //AttackCoolDown();
         //시작하자마자 공격버튼 못누르게 쿨타임 줌
+
+        StartCoroutine(ClearExistingWeapons());
     }
 
-    private void ClearExistingWeapons()
+    private IEnumerator ClearExistingWeapons()
     {
+        yield return new WaitForSeconds(0.1f);
         GameObject ac = GameObject.Find("Active Weapon");
         int c = ac.transform.childCount;
         for(int i = 1; i < c; i++)
