@@ -477,7 +477,6 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         if(!isEnhanceCasting && enhanceCastingComplete)
         {
-            Debug.Log(223333322);
             leftAttackButtonDown = false;
             rightAttackButtonDown = false;
             enhanceCastingComplete = false;
@@ -518,7 +517,6 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
                 if(rightCastingComplete)
                 {
-                    Debug.Log(2222);
                     rightAttackButtonDown = false;
                     rightCastingComplete = false;
                     (CurrentRightActiveWeapon as IWeapon).Attack();

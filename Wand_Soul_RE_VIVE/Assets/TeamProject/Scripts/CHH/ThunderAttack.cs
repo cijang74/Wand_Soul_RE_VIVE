@@ -28,8 +28,10 @@ public class ThunderAttack : MonoBehaviour, IWeapon
 
     private void SetSpawnPoint()
     {
-        ThunderSpawnPoint.x = Input.mousePosition.x;
-        ThunderSpawnPoint.y = 0f;
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        ThunderSpawnPoint.x = mousePosition.x;
+        ThunderSpawnPoint.y = mousePosition.y + 20f;
         ThunderSpawnPoint.z = 0f;
     }
 
