@@ -1,26 +1,26 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : MonoBehaviour, IEnemy
+public class Boss_2 : MonoBehaviour, IEnemy
 {
-    private Transform target; // í”Œë ˆì´ì–´ì˜ Transform ì •ë³´
-    private Animator animator; // ì• ë‹ˆë©”ì´ì…˜ ì œì–´ë¥¼ ìœ„í•œ Animator ì»´í¬ë„ŒíŠ¸
-    private EnemyPathfinding enemyPathfinding; // ê²½ë¡œ íƒìƒ‰ìš© ì»´í¬ë„ŒíŠ¸
+    private Transform target; // ÇÃ·¹ÀÌ¾îÀÇ Transform Á¤º¸
+    private Animator animator; // ¾Ö´Ï¸ŞÀÌ¼Ç Á¦¾î¸¦ À§ÇÑ Animator ÄÄÆ÷³ÍÆ®
+    private EnemyPathfinding enemyPathfinding; // °æ·Î Å½»ö¿ë ÄÄÆ÷³ÍÆ®
     private EnemyHealth enemyHealth;
 
     [SerializeField] private float skillCoolDown = 3f;
-    [SerializeField] private int skill1Chance = 5;    // ìŠ¤í‚¬1 í™•ë¥ 
-    [SerializeField] private int skill2Chance = 2;    // ìŠ¤í‚¬2 í™•ë¥ 
-    [SerializeField] private int skill3Chance = 3;    // ìŠ¤í‚¬3 í™•ë¥ 
+    [SerializeField] private int skill1Chance = 5;    // ½ºÅ³1 È®·ü
+    [SerializeField] private int skill2Chance = 2;    // ½ºÅ³2 È®·ü
+    [SerializeField] private int skill3Chance = 3;    // ½ºÅ³3 È®·ü
 
-    [SerializeField] private GameObject iceSpikePrefab; // ê³ ë“œë¦„ í”„ë¦¬íŒ¹
-    [SerializeField] private int spikeCount = 7;        // ê³ ë“œë¦„ ê°œìˆ˜
-    [SerializeField] private float horizontalSpacing = 2f; // ê³ ë“œë¦„ ê°„ê²©
-    [SerializeField] private float spawnHeight = 10f;  // ê³ ë“œë¦„ ìƒì„± ë†’ì´
-    [SerializeField] private float dangerZoneDuration = 2f; // ì„  í‘œì‹œ ì§€ì† ì‹œê°„
+    [SerializeField] private GameObject iceSpikePrefab; // °íµå¸§ ÇÁ¸®ÆÕ
+    [SerializeField] private int spikeCount = 7;        // °íµå¸§ °³¼ö
+    [SerializeField] private float horizontalSpacing = 2f; // °íµå¸§ °£°İ
+    [SerializeField] private float spawnHeight = 10f;  // °íµå¸§ »ı¼º ³ôÀÌ
+    [SerializeField] private float dangerZoneDuration = 2f; // ¼± Ç¥½Ã Áö¼Ó ½Ã°£
 
-    [SerializeField] private GameObject bulletSpawnerPrefab; // ì´íƒ„ ìŠ¤í¬ë„ˆ í”„ë¦¬íŒ¹
+    [SerializeField] private GameObject bulletSpawnerPrefab; // ÃÑÅº ½ºÆ÷³Ê ÇÁ¸®ÆÕ
 
     [SerializeField] private GameObject bossPrefab;
     private bool bossSpawned = false;
@@ -41,23 +41,23 @@ public class Boss : MonoBehaviour, IEnemy
         gameObject.SetActive(true);
     }
 
-    //ë³´ìŠ¤ëŠ” ì´ë™ì„ ì•ˆí•´ì„œ ë”°ë¡œ ì³ë‹¤ë³´ëŠ” ê²ƒ ì¶”ê°€í–ˆì–´ìš”.
+    //º¸½º´Â ÀÌµ¿À» ¾ÈÇØ¼­ µû·Î ÃÄ´Ùº¸´Â °Í Ãß°¡Çß¾î¿ä.
     private void FacePlayer()
     {
         if (target == null) return;
 
-        // í”Œë ˆì´ì–´ì™€ì˜ ë°©í–¥ ê³„ì‚°
+        // ÇÃ·¹ÀÌ¾î¿ÍÀÇ ¹æÇâ °è»ê
         Vector3 direction = (target.position - transform.position).normalized;
 
-        // ë°©í–¥ì— ë”°ë¼ ë³´ìŠ¤ì˜ Scaleì„ ì¡°ì •í•˜ì—¬ Flip
+        // ¹æÇâ¿¡ µû¶ó º¸½ºÀÇ ScaleÀ» Á¶Á¤ÇÏ¿© Flip
         if (direction.x > 0)
         {
-            // ì˜¤ë¥¸ìª½ì„ ë°”ë¼ë³´ë„ë¡ ì„¤ì •
+            // ¿À¸¥ÂÊÀ» ¹Ù¶óº¸µµ·Ï ¼³Á¤
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
         else if (direction.x < 0)
         {
-            // ì™¼ìª½ì„ ë°”ë¼ë³´ë„ë¡ ì„¤ì •
+            // ¿ŞÂÊÀ» ¹Ù¶óº¸µµ·Ï ¼³Á¤
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
     }
@@ -68,6 +68,13 @@ public class Boss : MonoBehaviour, IEnemy
         animator = GetComponent<Animator>();
         enemyPathfinding = GetComponent<EnemyPathfinding>();
         enemyHealth = GetComponent<EnemyHealth>();
+
+        // ÇöÀç Ã¼·ÂÀ» ÃÖ´ë Ã¼·ÂÀÇ Àı¹İÀ¸·Î ¼³Á¤
+        if (enemyHealth != null)
+        {
+            int halfHealth = enemyHealth.GetMaxHealth() / 2; // ÃÖ´ë Ã¼·ÂÀÇ Àı¹İ °è»ê
+            enemyHealth.InitializeHealth(halfHealth); // ÇöÀç Ã¼·ÂÀ» Àı¹İÀ¸·Î ¼³Á¤
+        }
     }
 
     private void Update()
@@ -76,14 +83,8 @@ public class Boss : MonoBehaviour, IEnemy
         {
             StartCoroutine(UseRandomSkill());
         }
-        // í”Œë ˆì´ì–´ ë°”ë¼ë³´ê¸°
+        // ÇÃ·¹ÀÌ¾î ¹Ù¶óº¸±â
         FacePlayer();
-
-        // ì²´ë ¥ì´ ì ˆë°˜ ì´í•˜ê°€ ë˜ë©´ Boss_2 ì†Œí™˜
-        if (!bossSpawned && enemyHealth.GetCurrentHealth() <= enemyHealth.GetMaxHealth() / 2)
-        {
-            SpawnBoss2();
-        }
     }
 
     private IEnumerator UseRandomSkill()
@@ -93,15 +94,15 @@ public class Boss : MonoBehaviour, IEnemy
         int totalChance = skill1Chance + skill2Chance + skill3Chance;
         int randomSkill = Random.Range(0, totalChance);
 
-        if (randomSkill < skill1Chance) // ìŠ¤í‚¬1
+        if (randomSkill < skill1Chance) // ½ºÅ³1
         {
             Skill1();
         }
-        else if (randomSkill < skill1Chance + skill2Chance) // ìŠ¤í‚¬2
+        else if (randomSkill < skill1Chance + skill2Chance) // ½ºÅ³2
         {
             Skill2();
         }
-        else // ìŠ¤í‚¬3
+        else // ½ºÅ³3
         {
             Skill3();
         }
@@ -114,32 +115,32 @@ public class Boss : MonoBehaviour, IEnemy
     {
         Debug.Log("Skill 1 executed!");
 
-        // 1. ìœ„í—˜ ì˜ì—­ í‘œì‹œ
+        // 1. À§Çè ¿µ¿ª Ç¥½Ã
         StartCoroutine(DrawDangerZone());
     }
 
     private IEnumerator DrawDangerZone()
     {
-        // ê³ ë“œë¦„ ìœ„ì¹˜ ì €ì¥ìš© ë¦¬ìŠ¤íŠ¸
+        // °íµå¸§ À§Ä¡ ÀúÀå¿ë ¸®½ºÆ®
         List<Vector3> spikePositions = new List<Vector3>();
 
         float startX = target.position.x - (horizontalSpacing * (spikeCount - 1)) / 2;
 
         for (int i = 0; i < spikeCount; i++)
         {
-            // LineRendererë¥¼ ë™ì ìœ¼ë¡œ ìƒì„±
+            // LineRenderer¸¦ µ¿ÀûÀ¸·Î »ı¼º
             GameObject lineObject = new GameObject("LineRenderer_" + i);
             LineRenderer line = lineObject.AddComponent<LineRenderer>();
 
-            // LineRenderer ê¸°ë³¸ ì„¤ì •
-            line.material = new Material(Shader.Find("Unlit/Color")); // Unlit Shaderë¡œ ì„¤ì •
-            line.material.color = Color.red; // ë¹¨ê°„ìƒ‰ìœ¼ë¡œ ì„¤ì •
-            line.positionCount = 2; // ì‹œì‘ì ê³¼ ëì 
+            // LineRenderer ±âº» ¼³Á¤
+            line.material = new Material(Shader.Find("Unlit/Color")); // Unlit Shader·Î ¼³Á¤
+            line.material.color = Color.red; // »¡°£»öÀ¸·Î ¼³Á¤
+            line.positionCount = 2; // ½ÃÀÛÁ¡°ú ³¡Á¡
             line.startWidth = 1f;
             line.endWidth = 1f;
             line.useWorldSpace = true;
 
-            // ë¼ì¸ ì‹œì‘ì ê³¼ ëì  ì„¤ì •
+            // ¶óÀÎ ½ÃÀÛÁ¡°ú ³¡Á¡ ¼³Á¤
             float x = startX + i * horizontalSpacing;
             Vector3 startPoint = new Vector3(x, target.position.y + spawnHeight, 0);
             Vector3 endPoint = new Vector3(x, target.position.y - 10, 0);
@@ -147,96 +148,96 @@ public class Boss : MonoBehaviour, IEnemy
             line.SetPosition(0, startPoint);
             line.SetPosition(1, endPoint);
 
-            // ê³ ë“œë¦„ì´ ìƒì„±ë  ìœ„ì¹˜ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
+            // °íµå¸§ÀÌ »ı¼ºµÉ À§Ä¡¸¦ ¸®½ºÆ®¿¡ Ãß°¡
             spikePositions.Add(startPoint);
 
-            // dangerZoneDuration í›„ LineRenderer ì œê±°
+            // dangerZoneDuration ÈÄ LineRenderer Á¦°Å
             Destroy(lineObject, dangerZoneDuration);
         }
 
-        // ë¼ì¸ í‘œì‹œ ì‹œê°„ ëŒ€ê¸°
+        // ¶óÀÎ Ç¥½Ã ½Ã°£ ´ë±â
         yield return new WaitForSeconds(dangerZoneDuration);
 
-        // ë¼ì¸ ì œê±° í›„ ê³ ë“œë¦„ ìƒì„± í˜¸ì¶œ
+        // ¶óÀÎ Á¦°Å ÈÄ °íµå¸§ »ı¼º È£Ãâ
         StartCoroutine(SpawnVerticalIceSpikes(spikePositions));
     }
 
     private IEnumerator SpawnVerticalIceSpikes(List<Vector3> spikePositions)
     {
-        // ê³ ë“œë¦„ ìƒì„±
+        // °íµå¸§ »ı¼º
         foreach (var position in spikePositions)
         {
             GameObject spike = Instantiate(iceSpikePrefab, position, Quaternion.identity);
 
-            // ê³ ë“œë¦„ ì•„ë˜ë¡œ ë–¨ì–´ì§€ëŠ” ì†ë„ ì„¤ì •
+            // °íµå¸§ ¾Æ·¡·Î ¶³¾îÁö´Â ¼Óµµ ¼³Á¤
             Rigidbody2D rb = spike.GetComponent<Rigidbody2D>();
-            rb.velocity = Vector2.down * 10f; // ì•„ë˜ë¡œ ë–¨ì–´ì§€ëŠ” ì†ë„
+            rb.velocity = Vector2.down * 10f; // ¾Æ·¡·Î ¶³¾îÁö´Â ¼Óµµ
         }
 
-        yield return null; // ì½”ë£¨í‹´ ì¢…ë£Œ
+        yield return null; // ÄÚ·çÆ¾ Á¾·á
     }
 
     private void Skill2()
     {
         Debug.Log("Skill 2 executed!");
-        // ìŠ¤í‚¬2 ë¡œì§ ì¶”ê°€
-        // ìŠ¤í¬ë„ˆ ìƒì„± ìœ„ì¹˜
+        // ½ºÅ³2 ·ÎÁ÷ Ãß°¡
+        // ½ºÆ÷³Ê »ı¼º À§Ä¡
         Vector3 leftSpawnPosition = new Vector3(target.position.x - 4f, target.position.y + 5f, 0);
         Vector3 rightSpawnPosition = new Vector3(target.position.x + 4f, target.position.y + 5f, 0);
 
-        // ìŠ¤í¬ë„ˆ í”„ë¦¬íŒ¹ ìƒì„±
+        // ½ºÆ÷³Ê ÇÁ¸®ÆÕ »ı¼º
         GameObject leftSpawner = Instantiate(bulletSpawnerPrefab, leftSpawnPosition, Quaternion.identity);
         GameObject rightSpawner = Instantiate(bulletSpawnerPrefab, rightSpawnPosition, Quaternion.identity);
 
-        // ê° ìŠ¤í¬ë„ˆì— ì´ˆê¸°í™” í˜¸ì¶œ
+        // °¢ ½ºÆ÷³Ê¿¡ ÃÊ±âÈ­ È£Ãâ
         BulletSpawner leftBulletSpawner = leftSpawner.GetComponent<BulletSpawner>();
         BulletSpawner rightBulletSpawner = rightSpawner.GetComponent<BulletSpawner>();
 
         if (leftBulletSpawner != null)
         {
-            leftBulletSpawner.Initialize(Vector3.left); // ì™¼ìª½ ë°©í–¥ ìŠ¤í¬ë„ˆ
+            leftBulletSpawner.Initialize(Vector3.left); // ¿ŞÂÊ ¹æÇâ ½ºÆ÷³Ê
         }
 
         if (rightBulletSpawner != null)
         {
-            rightBulletSpawner.Initialize(Vector3.right); // ì˜¤ë¥¸ìª½ ë°©í–¥ ìŠ¤í¬ë„ˆ
+            rightBulletSpawner.Initialize(Vector3.right); // ¿À¸¥ÂÊ ¹æÇâ ½ºÆ÷³Ê
         }
     }
 
     private void Skill3()
     {
         Debug.Log("Skill 3 executed!");
-        // ìŠ¤í‚¬3 ë¡œì§ ì¶”ê°€
-        // 1. ìˆœê°„ì´ë™ ìœ„ì¹˜ ê²°ì •
+        // ½ºÅ³3 ·ÎÁ÷ Ãß°¡
+        // 1. ¼ø°£ÀÌµ¿ À§Ä¡ °áÁ¤
         Vector3 teleportPosition = DetermineTeleportPosition();
 
-        // 2. ìˆœê°„ì´ë™
+        // 2. ¼ø°£ÀÌµ¿
         StartCoroutine(TeleportAndCharge(teleportPosition));
     }
 
     private Vector3 DetermineTeleportPosition()
     {
-        // í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ê²°ì •
-        float xOffset = Random.value > 0.5f ? 3f : -3f; // 50% í™•ë¥ ë¡œ +3 ë˜ëŠ” -3
+        // ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¸¦ ±âÁØÀ¸·Î °áÁ¤
+        float xOffset = Random.value > 0.5f ? 3f : -3f; // 50% È®·ü·Î +3 ¶Ç´Â -3
         return new Vector3(target.position.x + xOffset, target.position.y, transform.position.z);
     }
 
     private IEnumerator TeleportAndCharge(Vector3 teleportPosition)
     {
-        // ìˆœê°„ì´ë™
+        // ¼ø°£ÀÌµ¿
         transform.position = teleportPosition;
 
-        // ì ê¹ ëŒ€ê¸°
+        // Àá±ñ ´ë±â
         yield return new WaitForSeconds(1f);
 
-        // ëª¸í†µë°•ì¹˜ê¸° ì‹¤í–‰
+        // ¸öÅë¹ÚÄ¡±â ½ÇÇà
         Vector3 chargeDirection = teleportPosition.x < target.position.x ? Vector3.right : Vector3.left;
         float chargeDistance = 12f;
         float chargeSpeed = 10f;
 
         Vector3 destination = transform.position + chargeDirection * chargeDistance;
 
-        // ëª¸í†µë°•ì¹˜ê¸° ì´ë™
+        // ¸öÅë¹ÚÄ¡±â ÀÌµ¿
         float elapsedTime = 0f;
         float chargeDuration = chargeDistance / chargeSpeed;
 
@@ -247,10 +248,10 @@ public class Boss : MonoBehaviour, IEnemy
             yield return null;
         }
 
-        // ì¶©ëŒ íŒì •ì„ ìœ„í•´ Collider ì¶”ê°€ ë¡œì§ ì‘ì„± ê°€ëŠ¥
+        // Ãæµ¹ ÆÇÁ¤À» À§ÇØ Collider Ãß°¡ ·ÎÁ÷ ÀÛ¼º °¡´É
         Debug.Log("Charge complete!");
 
-        // ëª¸í†µë°•ì¹˜ê¸° ì¢…ë£Œ í›„ ë³´ìŠ¤ì˜ ë‹¤ìŒ í–‰ë™ ì¤€ë¹„
+        // ¸öÅë¹ÚÄ¡±â Á¾·á ÈÄ º¸½ºÀÇ ´ÙÀ½ Çàµ¿ ÁØºñ
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -260,26 +261,11 @@ public class Boss : MonoBehaviour, IEnemy
             PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(2, transform); // ë°ë¯¸ì§€ 2 ì „ë‹¬
+                playerHealth.TakeDamage(2, transform); // µ¥¹ÌÁö 2 Àü´Ş
             }
 
             Debug.Log("Player hit by Boss charge!");
         }
     }
 
-    private void SpawnBoss2()
-    {
-        bossSpawned = true; // ë³´ìŠ¤2ê°€ ì´ë¯¸ ì†Œí™˜ë˜ì—ˆìŒì„ í‘œì‹œ
-        Vector3 spawnPosition = transform.position + new Vector3(3f, 0, 0); // ê¸°ì¡´ ë³´ìŠ¤ ì˜¤ë¥¸ìª½ì— Boss_2 ìƒì„±
-
-        // Boss_2 ìƒì„±
-        GameObject newBoss = Instantiate(bossPrefab, spawnPosition, Quaternion.identity);
-
-        // Boss_2 ì´ˆê¸°í™” (í•„ìš”í•œ ê²½ìš° ì¶”ê°€ ì‘ì—… ê°€ëŠ¥)
-        Boss_2 boss2Script = newBoss.GetComponent<Boss_2>();
-        if (boss2Script != null)
-        {
-            Debug.Log("Boss_2 spawned!");
-        }
-    }
 }
