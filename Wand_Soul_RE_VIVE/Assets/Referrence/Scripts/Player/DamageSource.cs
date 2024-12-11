@@ -17,8 +17,8 @@ public class DamageSource : MonoBehaviour
 
     private void Start() 
     {
-        MonoBehaviour currentActiveWeapon = ActiveWeapon.Instance.CurrentLeftActiveWeapon;
-        damageAmount = (currentActiveWeapon as IWeapon).GetWeaponInfo().weaponDamage;
+        //MonoBehaviour currentActiveWeapon = ActiveWeapon.Instance.CurrentLeftActiveWeapon;
+       // damageAmount = (currentActiveWeapon as IWeapon).GetWeaponInfo().weaponDamage;
         //currentActiveWeapon 스크립트를 인터페이스화 하여 weaponDamage변수에 접근
     }
 

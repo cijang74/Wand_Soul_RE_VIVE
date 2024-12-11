@@ -28,7 +28,7 @@ public class IceSpear : MonoBehaviour, IWeapon
     
     public void Attack()
     {
-        myAnimator.SetTrigger(FIRE_HASH);
+        //myAnimator.SetTrigger(FIRE_HASH);
         GameObject newArrow1 = Instantiate(iceSpearPrefab, iceSpearSpawnPoint1.position, ActiveWeapon.Instance.transform.rotation);
         GameObject newArrow2 = Instantiate(iceSpearPrefab, iceSpearSpawnPoint2.position, ActiveWeapon.Instance.transform.rotation);
         GameObject newArrow3 = Instantiate(iceSpearPrefab, iceSpearSpawnPoint3.position, ActiveWeapon.Instance.transform.rotation);

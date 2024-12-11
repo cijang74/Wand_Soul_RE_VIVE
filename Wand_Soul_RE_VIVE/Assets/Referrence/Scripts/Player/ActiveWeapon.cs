@@ -445,6 +445,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         if(!isEnhanceCasting && enhanceCastingComplete)
         {
+            Debug.Log(223333322);
             leftAttackButtonDown = false;
             rightAttackButtonDown = false;
             enhanceCastingComplete = false;
@@ -465,6 +466,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 {
                     leftAttackButtonDown = false;
                     leftCastingComplete = false;
+
                     (CurrentLeftActiveWeapon as IWeapon).Attack();
                     // as: 형변환, currentActiveWeapon스크립트가 IWeapon인터페이스에 있는
                     // 함수를 구현하였다면 currentActiveWeapon스크립트의 Attack()메서드를 실행시킨다.
@@ -482,6 +484,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
                 if(rightCastingComplete)
                 {
+                    Debug.Log(2222);
                     rightAttackButtonDown = false;
                     rightCastingComplete = false;
                     (CurrentRightActiveWeapon as IWeapon).Attack();
