@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 1193639063487109057, guid: 4092c8d397b344549a20efa18ddddf1e, type: 3}
   weaponCastingTime: 1
-  weaponDamage: 4
+  weaponDamage: 3
   weaponRange: 30
   weaponIcon: {fileID: -2129312161, guid: 96b4d70bfeac9e942a37283376dcc4c2, type: 3}

@@ -11,8 +11,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     public MonoBehaviour CurrentLeftActiveWeapon{ get; private set; }
     public MonoBehaviour CurrentRightActiveWeapon{ get; private set; }
-    
-    private IWeapon enhanceAttackKind;
+    public MonoBehaviour CurrentEnhancedActiveWeapon{ get; private set; }
 
     // 활성화시킬 무기스크립트를 입력받는다
     private RuneInventory runeInventory;
@@ -66,6 +65,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
         ActivateEnhanceWeapon();
 
+        ClearExistingWeapons();
+
         // 마우스 왼쪽 클릭 시 시작이 수행됨
         // =>: 람다식, 연산자 왼쪽이 파라미터, 연산자 오른쪽이 실행문장
         // 즉, _(전달값 X)를 파라미터로하여 연산자 뒤 함수를 실행한 값을 덧붙여준다.
@@ -88,6 +89,17 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         //AttackCoolDown();
         //시작하자마자 공격버튼 못누르게 쿨타임 줌
     }
+
+    private void ClearExistingWeapons()
+    {
+        GameObject ac = GameObject.Find("Active Weapon");
+        int c = ac.transform.childCount;
+        for(int i = 1; i < c; i++)
+        {
+            Destroy(ac.transform.GetChild(i).gameObject);
+        }
+    }
+
 
     private void ActivateEnhanceWeapon()
     {
@@ -119,6 +131,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         {
             enhancedGrassAttack = newWeapon.GetComponent<MonoBehaviour>();
         }
+
+        CurrentEnhancedActiveWeapon = newWeapon.GetComponent<MonoBehaviour>();
     }
 
     public void ActivateWeaponBySlot(int slotIndex)
@@ -194,13 +208,14 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         isLeftCasting = false;
     }
 
-    private void SetEnhanceAttack(IWeapon attackKind)
+    private void SetEnhanceAttack(MonoBehaviour attackKind)
     {
         isEnhanceCasting = true;
         //강화공격 캐스팅 중
 
-        enhanceAttackKind = attackKind;
-        enhanceTimeToCast = enhanceAttackKind.GetWeaponInfo().weaponCastingTime;
+        ActivateEnhancedWeapon((attackKind as IWeapon).GetWeaponInfo());
+
+        enhanceTimeToCast = (attackKind as IWeapon).GetWeaponInfo().weaponCastingTime;
         //강화공격에 필요한 캐스팅 시간 저장
 
         if(enhanceCastingCircle != null)
@@ -220,6 +235,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
             if(isRightCasting && (CurrentLeftActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon == (CurrentRightActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon)
             //우클릭에 이미 캐스팅 중이고, 좌클릭과 우클릭 룬이 똑같을 때
             {
+
                 isRightCasting = false;
                 //우클릭 캐스팅 취소
                 rightCastingComplete = false;
@@ -227,9 +243,6 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 rightCastingTimer = 0f;
                 enhanceCastingTimer = 0f;
                 //타이머 초기화
-                
-                Destroy(CurrentLeftActiveWeapon.gameObject);      //좌클릭 스태프 삭제
-                CurrentLeftActiveWeapon = null;
 
                 if(rightCastingCircle != null)
                 {
@@ -240,20 +253,26 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 var Icon = (CurrentRightActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon;
                 if(Icon.name == "Loon_ice")
                 {
-                    SetEnhanceAttack(enhancedIceAttack as IWeapon);
+                    SetEnhanceAttack(enhancedIceAttack);
                 }
                 else if(Icon.name == "Loon_fire")
                 {
-                    SetEnhanceAttack(enhancedFireAttack as IWeapon);
+                    SetEnhanceAttack(enhancedFireAttack);
                 }
                 else if(Icon.name == "Loon_thunder")
                 {
-                    SetEnhanceAttack(enhancedLightningAttack as IWeapon);
+                    SetEnhanceAttack(enhancedLightningAttack);
                 }
                 else if(Icon.name == "Loon_tree")
                 {
-                    SetEnhanceAttack(enhancedGrassAttack as IWeapon);
+                    SetEnhanceAttack(enhancedGrassAttack);
                 }
+                
+                
+                Destroy(CurrentLeftActiveWeapon.gameObject);      //좌클릭 스태프 삭제
+                CurrentLeftActiveWeapon = null;         
+                Destroy(CurrentRightActiveWeapon.gameObject);      //우클릭 스태프 삭제
+                CurrentRightActiveWeapon = null;
             }
             else
             //일반적인 경우(강화공격 x)
@@ -287,9 +306,6 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 leftCastingTimer = 0f;
                 enhanceCastingTimer = 0f;
                 //타이머 초기화
-                
-                Destroy(CurrentLeftActiveWeapon.gameObject);      //우클릭 스태프 삭제
-                CurrentLeftActiveWeapon = null;               
 
                 if(leftCastingCircle != null)
                 {
@@ -300,20 +316,25 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 var Icon = (CurrentRightActiveWeapon as IWeapon).GetWeaponInfo().weaponIcon;
                 if(Icon.name == "Loon_ice")
                 {
-                    SetEnhanceAttack(enhancedIceAttack as IWeapon);
+                    SetEnhanceAttack(enhancedIceAttack);
                 }
                 else if(Icon.name == "Loon_fire")
                 {
-                    SetEnhanceAttack(enhancedFireAttack as IWeapon);
+                    SetEnhanceAttack(enhancedFireAttack);
                 }
                 else if(Icon.name == "Loon_thunder")
                 {
-                    SetEnhanceAttack(enhancedLightningAttack as IWeapon);
+                    SetEnhanceAttack(enhancedLightningAttack);
                 }
                 else if(Icon.name == "Loon_tree")
                 {
-                    SetEnhanceAttack(enhancedGrassAttack as IWeapon);
+                    SetEnhanceAttack(enhancedGrassAttack);
                 }
+                
+                Destroy(CurrentLeftActiveWeapon.gameObject);      //좌클릭 스태프 삭제
+                CurrentLeftActiveWeapon = null;         
+                Destroy(CurrentRightActiveWeapon.gameObject);      //우클릭 스태프 삭제
+                CurrentRightActiveWeapon = null;        
             }
             else
             //일반적인 경우(강화공격 x)
@@ -347,6 +368,11 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
             {
                 enhanceCastingComplete = true;                  //캐스팅 완료
             }
+            else
+            {
+                Destroy(CurrentEnhancedActiveWeapon.gameObject);
+                CurrentLeftActiveWeapon = null;
+            }
 
             if(enhanceCastingCircle != null)
             {
@@ -355,42 +381,48 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         }
         else if(slotIndex == leftClick)
         {
-            isLeftCasting = false;
-            //클릭 땠으니 시전중 x
+            if(isLeftCasting)
+            {
+                isLeftCasting = false;
+                //클릭 땠으니 시전중 x
 
-            if(leftCastingTimer >= leftTimeToCast)          //캐스팅 시간보다 오래 눌렀으면
-            {
-                leftCastingComplete = true;                 //캐스팅 완료(시전 준비 완료)
-            }
-            else
-            {
-                Destroy(CurrentLeftActiveWeapon.gameObject);
-                CurrentLeftActiveWeapon = null;
-            }
-            
-            if(leftCastingCircle != null)
-            {
-                leftCastingCircle.gameObject.SetActive(false);      //타이머 비활성화
+                if(leftCastingTimer >= leftTimeToCast)          //캐스팅 시간보다 오래 눌렀으면
+                {
+                    leftCastingComplete = true;                 //캐스팅 완료(시전 준비 완료)
+                }
+                else
+                {
+                    Destroy(CurrentLeftActiveWeapon.gameObject);
+                    CurrentLeftActiveWeapon = null;
+                }
+                
+                if(leftCastingCircle != null)
+                {
+                    leftCastingCircle.gameObject.SetActive(false);      //타이머 비활성화
+                }
             }
         }
 
         else if(slotIndex == rightClick)
         {
-            isRightCasting = false;
+            if(isRightCasting)
+            {
+                isRightCasting = false;
 
-            if(rightCastingTimer >= rightTimeToCast)          //캐스팅 시간보다 오래 눌렀으면
-            {
-                rightCastingComplete = true;
-            }
-            else
-            {
-                Destroy(CurrentRightActiveWeapon.gameObject);
-                CurrentRightActiveWeapon = null;
-            }
-            
-            if(rightCastingCircle != null)
-            {
-                rightCastingCircle.gameObject.SetActive(false);
+                if(rightCastingTimer >= rightTimeToCast)          //캐스팅 시간보다 오래 눌렀으면
+                {
+                    rightCastingComplete = true;
+                }
+                else
+                {
+                    Destroy(CurrentRightActiveWeapon.gameObject);
+                    CurrentRightActiveWeapon = null;
+                }
+                
+                if(rightCastingCircle != null)
+                {
+                    rightCastingCircle.gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -400,7 +432,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         if(isEnhanceCasting && !enhanceCastingComplete)     //강화공격 중일때
         {
-            float weaponCastingTime = enhanceAttackKind.GetWeaponInfo().weaponCastingTime;
+            float weaponCastingTime = (CurrentEnhancedActiveWeapon as IWeapon).GetWeaponInfo().weaponCastingTime;
             enhanceCastingTimer += Time.deltaTime;
 
             if(enhanceCastingCircle != null)
@@ -450,10 +482,12 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
             rightAttackButtonDown = false;
             enhanceCastingComplete = false;
 
-            enhanceAttackKind.Attack();
+            (CurrentEnhancedActiveWeapon as IWeapon).Attack();
 
             runeInventory.MoveRuneBack(leftClick);
             runeInventory.MoveRuneBack(rightClick);
+
+            Destroy(CurrentEnhancedActiveWeapon.gameObject);
         }   
         else
         {

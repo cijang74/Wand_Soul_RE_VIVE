@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426fe1aaae50cc84cbd996f764ada4fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: 92346b3a370150047a56d40a97ee45a2, type: 2}
+  weaponInfo: {fileID: 11400000, guid: fa9742f85a1d621408776455c2e5a72e, type: 2}
   icon: {fileID: 318472837}
 --- !u!114 &33684799
 MonoBehaviour:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426fe1aaae50cc84cbd996f764ada4fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: 92346b3a370150047a56d40a97ee45a2, type: 2}
+  weaponInfo: {fileID: 11400000, guid: fa9742f85a1d621408776455c2e5a72e, type: 2}
   icon: {fileID: 331878514}
 --- !u!114 &258507095
 MonoBehaviour:
