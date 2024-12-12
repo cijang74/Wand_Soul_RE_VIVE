@@ -23,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/merged_TeamProject/Ending.unity
     guid: 7d31820ee2a5eae46af72e51e24f8e9c
-  - enabled: 1
-    path: Assets/Scenes/Refference/Town.unity
-    guid: 9277ae5e639375e4c916faaada6621c3
   m_configObjects: {}

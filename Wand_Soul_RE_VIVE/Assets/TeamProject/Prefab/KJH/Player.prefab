@@ -468,7 +468,7 @@ MonoBehaviour:
   dashSpeed: 4
   myTrailRenderer: {fileID: 3826460079345128080}
   weaponCollider: {fileID: 3918721086750267391}
-  jumpSpeed: 10
+  jumpSpeed: 12
   isFreeze: 0
 --- !u!210 &6655222152109191374
 SortingGroup:
@@ -494,9 +494,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c55b37551323749bb310c1e8778f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 50
   knockBackTrustAmount: 10
   DamageRecoveryTime: 1
+  currentHealth: 0
 --- !u!114 &191722746281872
 MonoBehaviour:
   m_ObjectHideFlags: 0
