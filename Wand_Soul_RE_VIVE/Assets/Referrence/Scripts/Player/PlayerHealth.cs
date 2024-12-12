@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.Mathematics;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
@@ -15,7 +16,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
     [SerializeField] private float DamageRecoveryTime = 1f;
 
     const string  HEALTH_SLIDER_TEXT= "Health Slider";
-    const string  Town_TEXT= "Town";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
     public int currentHealth;
@@ -130,7 +130,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
-        SceneManager.LoadScene("Stage1"); // 죽으면 마을에서 부활
+        SceneManager.LoadScene("Ending"); // 죽으면 마을에서 부활
         Stamina.Instance.RefreshStaminaOnDeath();
     }
 

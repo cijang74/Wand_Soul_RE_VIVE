@@ -138,14 +138,17 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     public void ActivateWeaponBySlot(int slotIndex)
     {
-        InventorySlot selectedSlot = runeInventory.GetSlot(slotIndex).GetComponent<InventorySlot>();
-        WeaponInfo weaponInfo = selectedSlot.GetWeaponInfo();
+        if(PlayerHealth.Instance.currentHealth > 0)
+        {
+            InventorySlot selectedSlot = runeInventory?.GetSlot(slotIndex).GetComponent<InventorySlot>();
+            WeaponInfo weaponInfo = selectedSlot.GetWeaponInfo();
 
-        GameObject weaponToSpawn = weaponInfo.weaponPrefab;
-        GameObject newWeapon = Instantiate(weaponToSpawn, transform.position, Quaternion.identity);
-        newWeapon.transform.parent = this.transform;
+            GameObject weaponToSpawn = weaponInfo.weaponPrefab;
+            GameObject newWeapon = Instantiate(weaponToSpawn, transform.position, Quaternion.identity);
+            newWeapon.transform.parent = this.transform;
 
-        NewWeapon(newWeapon.GetComponent<MonoBehaviour>(), slotIndex);
+            NewWeapon(newWeapon.GetComponent<MonoBehaviour>(), slotIndex);
+        }
     }
 
     public void NewWeapon(MonoBehaviour newWeapon, int slotIndex)

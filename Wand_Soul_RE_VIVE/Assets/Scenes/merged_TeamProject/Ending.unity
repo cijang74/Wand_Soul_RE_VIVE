@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 516745291}
   - component: {fileID: 516745290}
   - component: {fileID: 516745293}
+  - component: {fileID: 516745294}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -342,6 +343,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeScreen: {fileID: 1808607261}
   fadeSpeed: 1
+--- !u!114 &516745294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516745289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa36b31090a45964f8e2fb2bf425cafd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &773079423
 GameObject:
   m_ObjectHideFlags: 0
