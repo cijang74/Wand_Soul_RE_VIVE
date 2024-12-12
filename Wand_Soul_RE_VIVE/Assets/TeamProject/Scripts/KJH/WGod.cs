@@ -40,7 +40,7 @@ public class WGod : MonoBehaviour
         if(EconomyManager.Instance.currentGold >= 8)
         {
             PlayerController.Instance.ImproveMovementSpeed();
-            EconomyManager.Instance.UpdateMinusCoin(5);
+            EconomyManager.Instance.UpdateMinusCoin(8);
         }
 
         else
@@ -54,7 +54,7 @@ public class WGod : MonoBehaviour
         if(EconomyManager.Instance.currentGold >= 15)
         {
             Stamina.Instance.DownRefreshTime();
-            EconomyManager.Instance.UpdateMinusCoin(5);
+            EconomyManager.Instance.UpdateMinusCoin(15);
         }
 
         else
@@ -68,7 +68,7 @@ public class WGod : MonoBehaviour
         if(EconomyManager.Instance.currentGold >= 20)
         {
             PlayerHealth.Instance.UpMaxHP();
-            EconomyManager.Instance.UpdateMinusCoin(5);
+            EconomyManager.Instance.UpdateMinusCoin(20);
         }
 
         else

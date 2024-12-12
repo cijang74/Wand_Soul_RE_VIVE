@@ -294,6 +294,7 @@ MonoBehaviour:
   particleOnHitPrefabVFX: {fileID: 4325406826078990300, guid: 0b32e66c34bbf564684419ae4e9d97a3, type: 3}
   isEnemyProjectile: 0
   projectileRange: 10
+  damageAmount: 1
 --- !u!114 &3551456976537388092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a640cbcd94ede26458943a42027b324f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 15
 --- !u!82 &4151550898081058694
 AudioSource:
   m_ObjectHideFlags: 0
