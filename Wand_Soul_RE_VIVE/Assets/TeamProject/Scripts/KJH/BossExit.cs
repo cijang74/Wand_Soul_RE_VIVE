@@ -5,37 +5,44 @@ using UnityEngine;
 public class BossExit : MonoBehaviour
 {
     private GameObject[] enemies;
+    private OnExit onExit;
+    private bool is_Dialog_End = false;
+
+    private void Awake() 
+    {
+        onExit = FindObjectOfType<OnExit>();
+    }
 
     void Start()
     {
-        gameObject.SetActive(false);
         UpdateEnemyList();
         CheckAndDestroySelf();
     }
 
     void Update()
     {
+        Debug.Log("적 더이상 없음 ");
         UpdateEnemyList();
         CheckAndDestroySelf();
     }
 
-    private void UpdateEnemyList()
+    public void UpdateEnemyList()
     {
         // Tag가 Enemy인 오브젝트들을 배열에 저장
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
-    private void CheckAndDestroySelf()
+    public void CheckAndDestroySelf()
     {
-        if (enemies.Length == 0)
+        if (enemies.Length == 0 && is_Dialog_End)
         {
             Debug.Log("적 더이상 없음 ");
-            ActiveExit();
+            onExit.ActiveExit();
         }
     }
 
-    public void ActiveExit()
+    public void Set_is_Dialog_End()
     {
-        gameObject.SetActive(true);
+        is_Dialog_End = true;
     }
 }

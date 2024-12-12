@@ -358,7 +358,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void StartAttack(int slotIndex)
     {
-        if(isEnhanceCasting)
+        if(isEnhanceCasting && PlayerHealth.Instance.currentHealth > 0)
         //강화공격 시전 중이면
         {
             isEnhanceCasting = false;
@@ -369,10 +369,14 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
             {
                 enhanceCastingComplete = true;                  //캐스팅 완료
             }
+
             else
             {
-                Destroy(CurrentEnhancedActiveWeapon.gameObject);
-                CurrentLeftActiveWeapon = null;
+                if(PlayerHealth.Instance.currentHealth > 0)
+                {
+                    Destroy(CurrentEnhancedActiveWeapon.gameObject);
+                    CurrentLeftActiveWeapon = null;
+                }
             }
 
             if(enhanceCastingCircle != null)
@@ -380,7 +384,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 enhanceCastingCircle.gameObject.SetActive(false);       //타이머 비활성화
             }
         }
-        else if(slotIndex == leftClick)
+        else if(slotIndex == leftClick && PlayerHealth.Instance.currentHealth > 0)
         {
             if(isLeftCasting)
             {
@@ -393,8 +397,11 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 }
                 else
                 {
-                    Destroy(CurrentLeftActiveWeapon.gameObject);
-                    CurrentLeftActiveWeapon = null;
+                    if(PlayerHealth.Instance.currentHealth > 0)
+                    {
+                        Destroy(CurrentLeftActiveWeapon?.gameObject);
+                        CurrentLeftActiveWeapon = null;
+                    }
                 }
                 
                 if(leftCastingCircle != null)
@@ -404,7 +411,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
             }
         }
 
-        else if(slotIndex == rightClick)
+        else if(slotIndex == rightClick && PlayerHealth.Instance.currentHealth > 0)
         {
             if(isRightCasting)
             {
@@ -416,8 +423,11 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
                 }
                 else
                 {
-                    Destroy(CurrentRightActiveWeapon.gameObject);
-                    CurrentRightActiveWeapon = null;
+                    if(PlayerHealth.Instance.currentHealth > 0)
+                    {
+                        Destroy(CurrentRightActiveWeapon?.gameObject);
+                        CurrentRightActiveWeapon = null;
+                    }
                 }
                 
                 if(rightCastingCircle != null)

@@ -18,7 +18,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     const string  Town_TEXT= "Town";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
-    private int currentHealth;
+    public int currentHealth;
 
     private Slider heathSlider;
     private Knockback knockback;

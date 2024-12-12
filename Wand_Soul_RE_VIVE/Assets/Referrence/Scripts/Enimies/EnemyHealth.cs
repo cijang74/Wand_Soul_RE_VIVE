@@ -13,15 +13,19 @@ public class EnemyHealth : MonoBehaviour
     private Knockback knockback;
     private Flash flash;
     private Boss boss;
+    private Boss_2 boss_2;
     private Slider heathSlider;
+    private Slider heathSlider2;
 
     const string  BOSS_HEALTH_SLIDER_TEXT= "Boss Health Slider";
+    const string  BOSS_SHADOW_HEALTH_SLIDER_TEXT= "Boss Shadow Health Slider";
 
     private void Awake()
     {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
         boss = GetComponent<Boss>();
+        boss_2 = GetComponent<Boss_2>();
     }
 
     private void Start()
@@ -56,7 +60,6 @@ public class EnemyHealth : MonoBehaviour
             GetComponent<PickUpSpawner>().DropItems();
             Destroy(gameObject);
         }
-
     }
 
     public int GetCurrentHealth()
@@ -86,6 +89,17 @@ public class EnemyHealth : MonoBehaviour
 
             heathSlider.maxValue = startingHealth;
             heathSlider.value = currentHealth;
+        }
+
+        if(boss_2 != null)
+        {
+            if(heathSlider2 == null)
+            {
+                heathSlider2 = GameObject.Find(BOSS_SHADOW_HEALTH_SLIDER_TEXT).GetComponent<Slider>();
+            }
+
+            heathSlider2.maxValue = startingHealth;
+            heathSlider2.value = currentHealth;
         }
     }
 }

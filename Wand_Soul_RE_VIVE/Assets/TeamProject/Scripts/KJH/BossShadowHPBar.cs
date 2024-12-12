@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossHPBar : Singleton<BossHPBar>
+public class BossShadowHPBar : Singleton<BossShadowHPBar>
 {
-    // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(false);
-    }
-
-    public void ActiveBar()
-    {
-        gameObject.SetActive(true);
     }
 
     public void ActiveShadowBar()

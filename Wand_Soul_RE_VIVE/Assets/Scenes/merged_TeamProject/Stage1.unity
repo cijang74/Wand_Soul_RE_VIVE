@@ -492,6 +492,14 @@ PrefabInstance:
       propertyPath: weaponInfo
       value: 
       objectReference: {fileID: 11400000, guid: 2b392159adde0ad44a2367f0efb461a3, type: 2}
+    - target: {fileID: 661063638331546673, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661063638331546673, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1273464170904873975, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

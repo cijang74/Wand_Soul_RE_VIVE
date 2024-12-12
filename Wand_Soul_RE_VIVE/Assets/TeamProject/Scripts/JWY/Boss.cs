@@ -38,6 +38,7 @@ public class Boss : MonoBehaviour, IEnemy
 
     public void ActiveBoss()
     {
+        BossHPBar.Instance.ActiveBar();
         gameObject.SetActive(true);
     }
 
@@ -269,6 +270,7 @@ public class Boss : MonoBehaviour, IEnemy
 
     private void SpawnBoss2()
     {
+        BossShadowHPBar.Instance.ActiveShadowBar();
         bossSpawned = true; // 보스2가 이미 소환되었음을 표시
         Vector3 spawnPosition = transform.position + new Vector3(3f, 0, 0); // 기존 보스 오른쪽에 Boss_2 생성
 
