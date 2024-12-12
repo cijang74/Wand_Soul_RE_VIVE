@@ -172,6 +172,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 661063638331546673, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 661063638331546673, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1273464170904873975, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -360,6 +368,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6648704464840615932, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: m_Name
+      value: Boss Shadow Health Slider
+      objectReference: {fileID: 0}
     - target: {fileID: 7046913241249747264, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -382,6 +394,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7046913241249747264, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378337377690172213, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378337377690172213, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7518313572163869907, guid: 0a5e9be37fa6d214e882f1309d54ea0d, type: 3}
