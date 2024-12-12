@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private GameObject particleOnHitPrefabVFX;
     [SerializeField] private bool isEnemyProjectile = false;
     [SerializeField] private float projectileRange = 10f;
+    [SerializeField] private int damageAmount = 1;
     
     private Vector3 startPosition;
 
@@ -48,7 +49,7 @@ public class Projectile : MonoBehaviour
             // 플레이어가 적탄환에 맞았을 때 또는 적탄환에 적이 적이 맞은게 아니라면
             // 즉, 오직 총알은 플레이어만 닿았을때 삭제되게 함.
             {
-                player?.TakeDamage(1, transform);
+                player?.TakeDamage(damageAmount, transform);
                 Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation); // 삭제 파티클
                 Destroy(gameObject);
             }
