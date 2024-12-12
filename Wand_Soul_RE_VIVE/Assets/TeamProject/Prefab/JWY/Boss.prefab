@@ -194,9 +194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillCoolDown: 3
-  skill1Chance: 3
+  skill1Chance: 5
   skill2Chance: 2
-  skill3Chance: 5
+  skill3Chance: 3
   iceSpikePrefab: {fileID: 703917380374878545, guid: 9f17d57c14edff94793e7b8faf4fc917, type: 3}
   spikeCount: 11
   horizontalSpacing: 4
@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460e203716a90b24cae74c92e6717369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10
+  startingHealth: 200
   deathVFXPrefab: {fileID: 4325406826078990300, guid: 11a30decb6d8f0d44a68a4a73e6ab1b2, type: 3}
-  knockbackThrust: 15
+  knockbackThrust: 5
 --- !u!70 &7630826463866690779
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

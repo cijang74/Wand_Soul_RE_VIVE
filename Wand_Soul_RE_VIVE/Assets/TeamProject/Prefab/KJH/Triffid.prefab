@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d57d3f83f894347b21ce31ec206d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  traceRange: 5
+  traceRange: 10
   attackDistance: 1
   enemyType: {fileID: 8886622304215328595}
   attackCoolDown: 2
@@ -233,9 +233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460e203716a90b24cae74c92e6717369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 20
   deathVFXPrefab: {fileID: 4325406826078990300, guid: 40b484b9710da794a872ff1e397221a6, type: 3}
-  knockbackThrust: 15
+  knockbackThrust: 2
 --- !u!114 &-5716216678185630461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,3 +380,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14fae705548ef149ab8320f1f9c075f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageAmount: 7
