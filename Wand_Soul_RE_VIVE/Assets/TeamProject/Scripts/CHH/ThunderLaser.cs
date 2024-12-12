@@ -30,7 +30,6 @@ public class ThunderLaser : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        Debug.Log(2112312312413532134);
         if(other.gameObject.CompareTag("Ground"))
         // 만약 닿은게 파괴불가능한 오브젝트이고 그것이 Trigger가 아니라면 (나무의 나뭇잎 때문에)
         {

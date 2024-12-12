@@ -16,7 +16,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     private void Start() 
     {
-        playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
+        //playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
         // ctx는 내가 누른 값의 value를 읽기위해 접근가능한 변수
         // 예를 들어 1을 누르면 ctx에 누른키가 저장이되고, ReadValue를 통해 반환시킬 수 있다.
     }
@@ -29,13 +29,13 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     public void EquitStartingWeapon()
     {
-        ToggleActiveHighlight(0); // 기본 선택된 무기는 인벤토리 슬롯의 0번째 무기
+        //ToggleActiveHighlight(0); // 기본 선택된 무기는 인벤토리 슬롯의 0번째 무기
     }
 
     private void ToggleActiveSlot(int numValue)
     // 선택한 키 넘버에 따라 무기 변경
     {
-        ToggleActiveHighlight(numValue - 1); // 인덱스와 실제 수 차이 -1
+        //ToggleActiveHighlight(numValue - 1); // 인덱스와 실제 수 차이 -1
     }
 
     private void ToggleActiveHighlight(int indexNum)
@@ -47,11 +47,11 @@ public class ActiveInventory : Singleton<ActiveInventory>
         // for(inventorySlot[i]; i < inventorySlot.Length; i++)과 같은 역할을 하는 C#반복문
         // 이 스크립트가 적용된 오브젝트의 자식(this.transform에는 자식 정보가 포함됨)에 접근
         {
-            inventorySlot.GetChild(0).gameObject.SetActive(false);
+            //inventorySlot.GetChild(0).gameObject.SetActive(false);
             // 객체의 첫번째 자식 오브젝트를 비활성화
         }
 
-        this.transform.GetChild(indexNum).GetChild(0).gameObject.SetActive(true);
+        //this.transform.GetChild(indexNum).GetChild(0).gameObject.SetActive(true);
         // 해당 객체의 indexNum번째 자식의 첫번째 자식(하이라이트 이미지)를 활성화
 
         ChangeActiveWeapon();
