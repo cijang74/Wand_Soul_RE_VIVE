@@ -9,7 +9,7 @@ public class DestroyAllObjects : MonoBehaviour
     {
         foreach (GameObject obj in FindObjectsOfType<GameObject>())
         {
-            if (obj.CompareTag("DontDestroy")) // Ensure you assign the tag in the Editor
+            if (obj.CompareTag("DontDestroy") || obj.CompareTag("Player")) // Ensure you assign the tag in the Editor
             {
                 Destroy(obj);
             }
